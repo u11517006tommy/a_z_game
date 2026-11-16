@@ -1,0 +1,2932 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>莎士比亞 A–Z 劇本詞彙殿堂 | Shakespeare's A–Z Lexicon (古典油畫典藏版)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Elizabethan Ornamental & Traditional Chinese Serif/Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Configuration & Custom Design Tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              950: '#17040A',
+              900: '#2A0813',
+              800: '#3E0D1D',
+              700: '#581329',
+              600: '#7A1C3A',
+            },
+            gold: {
+              100: '#FAF0CA',
+              200: '#F3E5AB',
+              300: '#E6C86E',
+              400: '#D4AF37',
+              500: '#B59024',
+              600: '#8C6D16',
+            },
+            parchment: {
+              50: '#FCF9F2',
+              100: '#F9F4E8',
+              200: '#EFE6D2',
+              300: '#E2D3B5',
+              400: '#CBB68E',
+            },
+            ink: {
+              900: '#1E1B18',
+              800: '#2E2924',
+              700: '#4A4137',
+              600: '#6B5D4F',
+            }
+          },
+          fontFamily: {
+            decorative: ['"Cinzel Decorative"', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            garamond: ['"EB Garamond"', 'serif'],
+            serifTC: ['"Noto Serif TC"', 'serif'],
+            sansTC: ['"Noto Sans TC"', 'sans-serif'],
+          },
+          boxShadow: {
+            'folio': '0 20px 50px -12px rgba(15, 3, 7, 0.75), 0 0 0 1px rgba(212, 175, 55, 0.35)',
+            'gold-glow': '0 0 20px rgba(212, 175, 55, 0.35)',
+            'parchment-inner': 'inset 0 2px 12px rgba(92, 72, 46, 0.14)',
+            'oil-canvas': '0 20px 42px rgba(16, 6, 3, 0.7), inset 0 0 24px rgba(0, 0, 0, 0.6)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Base Elizabethan Velvet & Parchment Styling */
+    body {
+      background-color: #2A0813;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(122, 28, 58, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 8px);
+      color: #F9F4E8;
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Aged Parchment Card Texture */
+    .parchment-surface {
+      background-color: #F9F4E8;
+      background-image:
+        radial-gradient(ellipse at top left, rgba(255, 252, 245, 0.9) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(226, 211, 181, 0.65) 0%, transparent 65%),
+        repeating-linear-gradient(0deg, rgba(139, 115, 85, 0.03) 0px, rgba(139, 115, 85, 0.03) 1px, transparent 1px, transparent 4px);
+      color: #1E1B18;
+    }
+
+    /* Ornamental Double Border */
+    .gold-double-border {
+      border: 2px solid #D4AF37;
+      box-shadow: inset 0 0 0 4px #F9F4E8, inset 0 0 0 5px rgba(212, 175, 55, 0.55);
+    }
+
+    /* Illuminated Drop Cap */
+    .illuminated-cap {
+      font-family: 'Cinzel Decorative', serif;
+      background: linear-gradient(145deg, #3E0D1D 0%, #2A0813 100%);
+      color: #F3E5AB;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 4px 12px rgba(42, 8, 19, 0.35), inset 0 0 10px rgba(212, 175, 55, 0.3);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Parchment Unfurl Animation for Stage 3 */
+    @keyframes unfurlParchment {
+      0% {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .animate-unfurl {
+      animation: unfurlParchment 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Soundwave Equalizer Bars Animation */
+    @keyframes soundWavePulse {
+      0%, 100% { transform: scaleY(0.22); }
+      50% { transform: scaleY(1); }
+    }
+
+    .eq-bar {
+      transform-origin: bottom;
+      transform: scaleY(0.22);
+      transition: transform 0.2s ease;
+    }
+
+    .eq-playing .eq-bar {
+      animation: soundWavePulse 0.65s ease-in-out infinite;
+    }
+
+    /* Classical Oil Painting Frame */
+    .oil-painting-frame {
+      background: linear-gradient(145deg, #4b2e0e 0%, #1d0f04 100%);
+      box-shadow: 0 18px 36px rgba(20, 8, 4, 0.6), inset 0 0 0 2px rgba(230, 194, 96, 0.55);
+    }
+
+    .oil-painting-frame canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Custom Scrollbar for Glossary Drawer */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #17040A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8C6D16;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-gold-400 selection:text-burgundy-950">
+
+  <!-- ==================== TOP THEATRICAL HEADER ==================== -->
+  <header class="sticky top-0 z-30 bg-burgundy-950/95 backdrop-blur-md border-b border-gold-400/40 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+        
+        <!-- Brand Title & Emblem -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Quill & Crown SVG Emblem -->
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-burgundy-800 to-burgundy-950 border border-gold-400 flex items-center justify-center shadow-gold-glow shrink-0">
+              <svg class="w-6 h-6 text-gold-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="8" x2="2" y2="22" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="17.5" y1="15" x2="9" y2="15" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h1 class="font-serifTC font-black text-lg sm:text-xl md:text-2xl tracking-wide text-gold-200">
+                  莎士比亞 A–Z 劇本詞彙殿堂
+                </h1>
+                <span class="hidden sm:inline-block px-2 py-0.5 text-[11px] font-cinzel tracking-widest uppercase bg-gold-400/15 text-gold-300 border border-gold-400/40 rounded">
+                  Oil Gallery Edition
+                </span>
+              </div>
+              <p class="text-xs text-parchment-300/80 font-garamond italic tracking-wide">
+                Shakespeare's A–Z Lexicon · 專屬油畫線索 × 劇場原聲 × 經典台詞三階段典藏
+              </p>
+            </div>
+          </div>
+
+          <!-- Mobile Glossary Button -->
+          <button onclick="openGlossaryModal()" class="lg:hidden flex items-center gap-1.5 px-3 py-2 rounded-lg bg-burgundy-800 hover:bg-burgundy-700 border border-gold-400/60 text-gold-200 text-xs font-medium transition">
+            <span>📜 詞彙手札</span>
+            <span id="mobile-bookmark-count" class="px-1.5 py-0.2 bg-gold-400 text-burgundy-950 rounded-full font-bold text-[11px]">0</span>
+          </button>
+        </div>
+
+        <!-- Right Controls: Progress Counter, Mode Switch, Glossary Drawer Button -->
+        <div class="flex flex-wrap items-center justify-between lg:justify-end gap-2.5 sm:gap-3">
+          
+          <!-- Overall Progress Pill -->
+          <div class="flex items-center gap-2.5 bg-burgundy-900/90 border border-gold-400/35 rounded-xl px-3 py-1.5">
+            <div class="text-xs">
+              <span class="text-parchment-300">已掌握</span>
+              <span id="mastered-count-text" class="font-bold text-gold-300 mx-0.5">0 / 26</span>
+              <span class="text-parchment-300 hidden sm:inline">個莎翁詞彙</span>
+            </div>
+            <div class="w-16 sm:w-24 h-2 bg-burgundy-950 rounded-full overflow-hidden border border-gold-400/25">
+              <div id="mastered-progress-bar" class="h-full bg-gradient-to-r from-gold-500 to-gold-200 transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Learning Mode Switch -->
+          <div class="flex items-center bg-burgundy-900/90 border border-gold-400/35 rounded-xl p-1" role="group" aria-label="學習模式切換">
+            <button id="btn-mode-strict" onclick="setLearningMode('strict')" class="px-2.5 py-1 rounded-lg text-xs font-medium transition-all bg-gold-400 text-burgundy-950 font-bold shadow-sm">
+              嚴格三階段模式
+            </button>
+            <button id="btn-mode-free" onclick="setLearningMode('free')" class="px-2.5 py-1 rounded-lg text-xs font-medium transition-all text-parchment-200 hover:text-gold-200">
+              自由檢視模式
+            </button>
+          </div>
+
+          <!-- Desktop Glossary & Bookmarks Drawer Button -->
+          <button onclick="openGlossaryModal()" class="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-burgundy-800 to-burgundy-700 hover:from-burgundy-700 hover:to-burgundy-600 border border-gold-400/70 text-gold-100 text-xs font-bold tracking-wide shadow-md transition">
+            <span>📜 我的莎翁手札</span>
+            <span id="desktop-bookmark-count" class="px-1.5 py-0.5 bg-gold-400 text-burgundy-950 rounded-full text-[11px] font-extrabold">0</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN STAGE CONTAINER ==================== -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-5">
+
+    <!-- A–Z Alphabet Navigation Ribbon / Grid -->
+    <section aria-label="A 到 Z 字母索引導覽" class="bg-burgundy-900/80 border border-gold-400/35 rounded-2xl p-3 sm:p-4 shadow-xl backdrop-blur-sm">
+      <div class="flex items-center justify-between mb-2.5 px-1">
+        <div class="flex items-center gap-2 text-xs text-gold-200/90">
+          <span class="font-cinzel font-bold tracking-wider uppercase text-gold-400">A–Z Index</span>
+          <span class="text-gold-400/40">|</span>
+          <span>點選任一字母開啟專屬油畫三階段學習（可使用鍵盤 ← → 切換字母）</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-3 text-[11px] text-parchment-300">
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span> 已完成</span>
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-rose-400 inline-block"></span> 已收藏</span>
+        </div>
+      </div>
+      
+      <!-- 26 Letters Grid -->
+      <div id="alphabet-grid" class="grid grid-cols-7 sm:grid-cols-13 gap-1.5 sm:gap-2">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- ==================== PRIMARY 3-STAGE THEATRICAL CARD ==================== -->
+    <article id="stage-card" class="parchment-surface gold-double-border rounded-2xl sm:rounded-3xl shadow-folio overflow-hidden transition-all duration-300">
+      
+      <!-- Stage Card Top Header & 3-Part Stepper -->
+      <div class="bg-gradient-to-r from-burgundy-950 via-burgundy-900 to-burgundy-950 text-parchment-100 px-4 sm:px-8 py-4 sm:py-5 border-b-2 border-gold-400">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <span id="current-letter-badge" class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gold-400 text-burgundy-950 font-decorative font-black text-2xl sm:text-3xl flex items-center justify-center shadow-gold-glow shrink-0">
+              A
+            </span>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="act-counter-label" class="text-xs font-bold tracking-wider text-gold-300 uppercase font-cinzel">
+                  Act I · 第 1 / 26 幕
+                </span>
+                <span id="play-genre-badge" class="px-2 py-0.5 text-[11px] rounded-full bg-burgundy-700/90 text-gold-200 border border-gold-400/40">
+                  悲劇 Tragedy
+                </span>
+                <span id="mastered-status-badge" class="hidden px-2 py-0.5 text-[11px] rounded-full bg-emerald-900/90 text-emerald-200 border border-emerald-400/50 font-medium">
+                  ✓ 已掌握
+                </span>
+              </div>
+              <h2 id="stage-subtitle-heading" class="font-serifTC font-bold text-base sm:text-lg text-parchment-50 mt-0.5">
+                第一階段：鑑賞古典油畫巨作，推敲舞台視覺線索
+              </h2>
+            </div>
+          </div>
+
+          <!-- Top Utility Actions: Bookmark & Prev/Next Letter -->
+          <div class="flex items-center gap-2 self-end md:self-auto">
+            <button id="btn-bookmark-toggle" onclick="toggleBookmark()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-gold-400/60 bg-burgundy-800/80 hover:bg-burgundy-700 text-gold-200 text-xs font-medium transition" title="收藏此詞彙至手札">
+              <span id="bookmark-icon">☆</span>
+              <span id="bookmark-label">收藏至詞彙手札</span>
+            </button>
+            <div class="flex items-center rounded-xl border border-gold-400/40 overflow-hidden bg-burgundy-900">
+              <button onclick="navigateLetter(-1)" class="px-3 py-2 hover:bg-burgundy-700 text-gold-200 text-xs font-bold transition border-r border-gold-400/30" title="上一個字母">
+                ← 上一字母
+              </button>
+              <button onclick="navigateLetter(1)" class="px-3 py-2 hover:bg-burgundy-700 text-gold-200 text-xs font-bold transition" title="下一個字母">
+                下一字母 →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mandatory 3-Stage Stepper Bar -->
+        <nav aria-label="三階段學習進度條" class="grid grid-cols-3 gap-2 sm:gap-3 pt-1">
+          <!-- Step 1 -->
+          <button id="stepper-1" onclick="goToStage(1)" class="group flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border text-left transition-all">
+            <span id="stepper-1-num" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-cinzel font-bold text-xs sm:text-sm shrink-0">
+              1
+            </span>
+            <div class="min-w-0">
+              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider opacity-75 font-cinzel">Part I · Oil Canvas</div>
+              <div class="text-xs sm:text-sm font-serifTC font-bold truncate">第一部分：油畫線索</div>
+            </div>
+          </button>
+
+          <!-- Step 2 -->
+          <button id="stepper-2" onclick="goToStage(2)" class="group flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border text-left transition-all">
+            <span id="stepper-2-num" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-cinzel font-bold text-xs sm:text-sm shrink-0">
+              2
+            </span>
+            <div class="min-w-0">
+              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider opacity-75 font-cinzel">Part II · Audio</div>
+              <div class="text-xs sm:text-sm font-serifTC font-bold truncate">第二部分：播放音檔</div>
+            </div>
+          </button>
+
+          <!-- Step 3 -->
+          <button id="stepper-3" onclick="goToStage(3)" class="group flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border text-left transition-all">
+            <span id="stepper-3-num" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-cinzel font-bold text-xs sm:text-sm shrink-0">
+              3
+            </span>
+            <div class="min-w-0">
+              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider opacity-75 font-cinzel">Part III · Reveal</div>
+              <div class="text-xs sm:text-sm font-serifTC font-bold truncate">第三部分：單字與原句</div>
+            </div>
+          </button>
+        </nav>
+      </div>
+
+      <!-- ==================== STAGE CONTENT AREA ==================== -->
+      <div class="p-5 sm:p-8 lg:p-10">
+        
+        <!-- ---------------------------------------------------------- -->
+        <!-- PART 1: OIL PAINTING VISUAL CLUE (第一部分：油畫線索)        -->
+        <!-- ---------------------------------------------------------- -->
+        <section id="view-stage-1" class="space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+            
+            <!-- Left/Center: Large Bespoke Classical Oil Painting Artwork -->
+            <div class="lg:col-span-7">
+              <div class="relative rounded-2xl overflow-hidden border-4 border-amber-700/90 shadow-oil-canvas oil-painting-frame" id="stage1-artwork-container">
+                <canvas id="canvas-stage-1" width="960" height="620" role="img" aria-label="莎士比亞詞彙古典油畫線索"></canvas>
+              </div>
+              <p class="text-center text-xs text-ink-600 mt-2.5 font-serifTC">
+                ▲ 17 世紀古典油畫筆觸與明暗光影（每幅畫作皆緊扣該字母莎翁單字情境，暫不揭曉英文單字）
+              </p>
+            </div>
+
+            <!-- Right: Stage Visual Clue Parchment Box & Primary Action -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+              <div class="bg-parchment-200/80 border-2 border-gold-500/60 rounded-2xl p-5 sm:p-6 shadow-parchment-inner relative">
+                <div class="flex items-center gap-2 text-burgundy-800 font-serifTC font-bold text-sm sm:text-base mb-3 pb-2 border-b border-gold-500/40">
+                  <span class="text-lg">🎨</span>
+                  <span>油畫構圖提示 (Oil Painting Visual Clue)</span>
+                </div>
+                <p id="stage1-visual-clue" class="text-ink-900 font-serifTC text-base sm:text-lg leading-relaxed">
+                  <!-- Visual clue injected here -->
+                </p>
+                <div class="mt-4 pt-3 border-t border-gold-500/30 flex items-center justify-between text-xs text-ink-600">
+                  <span>線索提示：單字開頭字母為 <strong id="clue-initial-letter" class="text-burgundy-800 font-cinzel text-sm">A</strong></span>
+                  <span id="clue-letter-length">共 -- 個字母</span>
+                </div>
+              </div>
+
+              <!-- Pedagogical Prompt -->
+              <div class="bg-burgundy-900/5 border border-burgundy-800/20 rounded-xl p-4 text-xs sm:text-sm text-ink-700 leading-relaxed">
+                <strong class="text-burgundy-800">鑑賞引導：</strong> 細看畫布上的厚塗筆觸、光影對比與人物器物，試著聯想這描繪的是哪一個與人性、命運或宮廷相關的英文詞彙？準備好後，請點擊下方按鈕進入第二部分聆聽英國劇場朗讀。
+              </div>
+
+              <!-- Primary CTA Button to Part 2 -->
+              <button onclick="advanceToStage(2)" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-burgundy-900 via-burgundy-800 to-burgundy-900 hover:from-burgundy-800 hover:to-burgundy-700 text-gold-200 border-2 border-gold-400 font-serifTC font-bold text-base sm:text-lg shadow-xl hover:shadow-gold-glow transition-all flex items-center justify-center gap-3 group cursor-pointer">
+                <span>前往第二部分：聆聽發音</span>
+                <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ---------------------------------------------------------- -->
+        <!-- PART 2: AUDIO PLAYBACK & LISTENING (第二部分：播放音檔)      -->
+        <!-- ---------------------------------------------------------- -->
+        <section id="view-stage-2" class="hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            
+            <!-- Left Docked Frame: Part 1 Oil Painting + Visual Clue Reference -->
+            <div class="lg:col-span-5 space-y-4">
+              <div class="rounded-2xl overflow-hidden border-3 border-amber-700/90 shadow-lg oil-painting-frame" id="stage2-artwork-container">
+                <canvas id="canvas-stage-2" width="960" height="620" role="img" aria-label="油畫線索縮圖"></canvas>
+              </div>
+              <div class="bg-parchment-200/75 border border-gold-500/50 rounded-xl p-4">
+                <div class="text-xs font-bold text-burgundy-800 mb-1 flex items-center gap-1.5">
+                  <span>🎨</span>
+                  <span>油畫構圖提示回顧</span>
+                </div>
+                <p id="stage2-visual-clue-summary" class="text-xs sm:text-sm text-ink-800 font-serifTC leading-relaxed">
+                  <!-- Clue summary -->
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Stage: Ornate Elizabethan Audio Player & Optional Spelling Check -->
+            <div class="lg:col-span-7 space-y-5">
+              
+              <!-- Ornate Elizabethan Audio Player Box -->
+              <div class="rounded-2xl bg-gradient-to-b from-burgundy-950 via-burgundy-900 to-burgundy-950 text-parchment-100 border-2 border-gold-400 p-5 sm:p-6 shadow-xl">
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-gold-400/30">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-full bg-gold-400/20 border border-gold-400 flex items-center justify-center text-gold-300">
+                      🔊
+                    </span>
+                    <div>
+                      <h3 class="font-serifTC font-bold text-base sm:text-lg text-gold-200">
+                        環球劇場原聲朗讀器
+                      </h3>
+                      <p id="voice-engine-label" class="text-[11px] text-parchment-300/80">
+                        正在偵測英式劇院語音引擎 (en-GB)...
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Playback Speed Controls -->
+                  <div class="flex items-center bg-burgundy-950/90 border border-gold-400/40 rounded-xl p-1" role="group" aria-label="語速控制">
+                    <button id="speed-100" onclick="setPlaybackRate(1.0)" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 transition">
+                      1.0x 正常語速
+                    </button>
+                    <button id="speed-75" onclick="setPlaybackRate(0.75)" class="px-2.5 py-1 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition">
+                      0.75x 慢速清晰
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Animated Golden Soundwave Equalizer -->
+                <div class="my-5 bg-burgundy-950/80 border border-gold-400/25 rounded-xl px-4 py-4 flex flex-col items-center justify-center">
+                  <div id="equalizer-bars" class="flex items-end justify-center gap-1.5 sm:gap-2 h-12 w-full max-w-md">
+                    <!-- 16 Equalizer Bars -->
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.05s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.18s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.32s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.12s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.45s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.25s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.52s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.08s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.38s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.20s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.48s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.15s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.35s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.28s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.42s"></span>
+                    <span class="eq-bar w-1.5 sm:w-2 h-full bg-gradient-to-t from-gold-600 to-gold-200 rounded-full" style="animation-delay: 0.10s"></span>
+                  </div>
+                  <p id="audio-status-caption" class="text-xs text-gold-300/90 mt-2.5 font-serifTC tracking-wide">
+                    點擊下方按鈕，先聆聽神祕單字與莎劇原句的發音（此時文字仍保密中）
+                  </p>
+                </div>
+
+                <!-- Two Distinct Audio Playback Buttons -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button onclick="playAudio('word')" class="py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-400 to-gold-300 hover:from-gold-300 hover:to-gold-200 text-burgundy-950 font-serifTC font-bold text-sm sm:text-base shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="text-lg">🎙️</span>
+                    <span>播放單字發音</span>
+                  </button>
+
+                  <button onclick="playAudio('quote')" class="py-3.5 px-4 rounded-xl bg-burgundy-800 hover:bg-burgundy-700 text-gold-100 border border-gold-400/80 font-serifTC font-bold text-sm sm:text-base shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="text-lg">📜</span>
+                    <span>播放莎劇原句音檔</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Optional Spelling Check Card -->
+              <div class="bg-parchment-200/85 border border-gold-500/60 rounded-2xl p-4 sm:p-5 shadow-parchment-inner">
+                <div class="flex items-center justify-between mb-2">
+                  <label for="spelling-input" class="text-xs sm:text-sm font-serifTC font-bold text-burgundy-900 flex items-center gap-1.5">
+                    <span>✍️ 聽音拼字試煉 (選填挑戰)</span>
+                  </label>
+                  <button type="button" onclick="revealSpellingHint()" class="text-xs text-burgundy-700 hover:text-burgundy-900 underline font-medium">
+                    需要字母提示？
+                  </button>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2">
+                  <input id="spelling-input" type="text" autocomplete="off" spellcheck="false" placeholder="聽完音檔後，試著拼出這個英文單字..." onkeydown="if(event.key==='Enter') checkSpelling()" class="flex-1 px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-gold-500/70 text-ink-900 font-playfair text-base focus:outline-none focus:ring-2 focus:ring-burgundy-700" />
+                  <button type="button" onclick="checkSpelling()" class="px-4 py-2.5 rounded-xl bg-burgundy-800 hover:bg-burgundy-700 text-gold-200 text-xs sm:text-sm font-bold transition shrink-0 cursor-pointer">
+                    核對拼字
+                  </button>
+                </div>
+                <p id="spelling-feedback" class="text-xs mt-2 min-h-[1.25rem] text-ink-700 font-medium"></p>
+              </div>
+
+              <!-- Primary CTA Button to Part 3 -->
+              <button onclick="advanceToStage(3)" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-burgundy-900 via-burgundy-800 to-burgundy-900 hover:from-burgundy-800 hover:to-burgundy-700 text-gold-200 border-2 border-gold-400 font-serifTC font-bold text-base sm:text-lg shadow-xl hover:shadow-gold-glow transition-all flex items-center justify-center gap-3 group cursor-pointer">
+                <span>前往第三部分：揭曉單字與原句</span>
+                <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ---------------------------------------------------------- -->
+        <!-- PART 3: REVEAL WORD & ORIGINAL QUOTE (第三部分：單字與原句) -->
+        <!-- ---------------------------------------------------------- -->
+        <section id="view-stage-3" class="hidden space-y-6 animate-unfurl">
+          
+          <!-- Top Reveal Banner: Illuminated Word + Phonetics + Oil Painting Thumbnail -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-parchment-200/70 border-2 border-gold-500/70 rounded-2xl p-5 sm:p-6 shadow-parchment-inner">
+            
+            <!-- Left: Word Identity & Definitions -->
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                <!-- Illuminated Drop Cap -->
+                <div id="reveal-drop-cap" class="illuminated-cap w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl font-black shrink-0">
+                  A
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-baseline gap-2.5">
+                    <h3 id="reveal-word-title" class="font-playfair font-extrabold text-3xl sm:text-4xl md:text-5xl text-burgundy-900 tracking-tight">
+                      Assassination
+                    </h3>
+                    <span id="reveal-pos" class="px-2.5 py-0.5 rounded-lg bg-burgundy-900/10 text-burgundy-800 font-garamond italic font-semibold text-sm sm:text-base">
+                      n. 名詞
+                    </span>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-3 mt-1.5">
+                    <span id="reveal-ipa" class="font-mono text-sm sm:text-base text-ink-700 bg-parchment-50 px-2.5 py-0.5 rounded border border-gold-400/50">
+                      /əˌsæs.ɪˈneɪ.ʃən/
+                    </span>
+                    <button onclick="playAudio('word')" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-burgundy-800 hover:bg-burgundy-700 text-gold-200 text-xs font-medium transition cursor-pointer">
+                      <span>🔊</span>
+                      <span>朗讀單字</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bilingual Definitions -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="bg-parchment-50/90 border border-gold-400/50 rounded-xl p-3.5">
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-burgundy-700 mb-1">繁體中文釋義</div>
+                  <div id="reveal-zh-def" class="font-serifTC font-bold text-base sm:text-lg text-ink-900">
+                    刺殺、暗殺（尤指對政治或重要人物的謀殺）
+                  </div>
+                </div>
+                <div class="bg-parchment-50/90 border border-gold-400/50 rounded-xl p-3.5">
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-burgundy-700 font-cinzel mb-1">English Definition</div>
+                  <div id="reveal-en-def" class="font-garamond text-base sm:text-lg text-ink-800 leading-snug">
+                    The act of murdering a prominent person, often for political or ideological reasons.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Compact Oil Painting Thumbnail -->
+            <div class="lg:col-span-4">
+              <div class="rounded-xl overflow-hidden border-2 border-amber-700/90 shadow-md oil-painting-frame max-w-xs mx-auto" id="stage3-artwork-container">
+                <canvas id="canvas-stage-3" width="960" height="620" role="img" aria-label="莎士比亞單字主題油畫"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- First Folio Original Shakespearean Quote Box -->
+          <div class="relative rounded-2xl bg-parchment-50 border-2 border-gold-500 p-5 sm:p-7 shadow-lg">
+            <!-- Decorative Corner Ornaments -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-gold-400/50">
+              <div class="flex items-center gap-2">
+                <span class="text-burgundy-800 text-lg">📜</span>
+                <span class="font-serifTC font-bold text-sm sm:text-base text-burgundy-900">
+                  莎士比亞劇本原句 (Original Shakespearean Verse)
+                </span>
+              </div>
+              <button onclick="playAudio('quote')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-burgundy-900 hover:bg-burgundy-800 text-gold-200 text-xs font-bold shadow transition cursor-pointer">
+                <span>🎙️</span>
+                <span>重播原句朗讀</span>
+              </button>
+            </div>
+
+            <!-- English Verse with Highlighted Target Word -->
+            <blockquote id="reveal-en-quote" class="font-garamond italic text-xl sm:text-2xl md:text-[26px] text-ink-900 leading-relaxed pl-4 border-l-4 border-burgundy-700 my-3">
+              <!-- Highlighted quote injected here -->
+            </blockquote>
+
+            <!-- Traditional Chinese Quote Translation -->
+            <div class="mt-4 pt-3 border-t border-parchment-300">
+              <div class="text-xs font-bold text-ink-600 mb-1">原句中文譯文：</div>
+              <p id="reveal-zh-quote" class="font-serifTC text-base sm:text-lg text-ink-800 leading-relaxed">
+                <!-- Chinese translation injected here -->
+              </p>
+            </div>
+
+            <!-- Play Attribution Badge -->
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-2 bg-parchment-200/80 rounded-xl px-4 py-2.5 border border-gold-400/40">
+              <div class="flex items-center gap-2 text-xs sm:text-sm font-serifTC font-bold text-burgundy-900">
+                <span>🏛️ 出處劇作：</span>
+                <span id="reveal-play-attribution">《馬克白》(Macbeth) · 第一幕第七場 (Act 1, Scene 7)</span>
+              </div>
+              <span class="text-xs font-cinzel text-ink-600">William Shakespeare</span>
+            </div>
+          </div>
+
+          <!-- Literary & Etymological Commentary -->
+          <div class="rounded-2xl bg-gradient-to-r from-burgundy-900 to-burgundy-950 text-parchment-100 border border-gold-400/60 p-5 sm:p-6 shadow-md">
+            <h4 class="font-serifTC font-bold text-sm sm:text-base text-gold-300 flex items-center gap-2 mb-2">
+              <span>✒️ 詞源與戲劇賞析 (Literary & Etymological Note)</span>
+            </h4>
+            <p id="reveal-literary-note" class="text-sm sm:text-base text-parchment-100/95 font-serifTC leading-relaxed">
+              <!-- Literary note injected here -->
+            </p>
+          </div>
+
+          <!-- Stage 3 Footer Navigation Actions -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+            <button onclick="goToStage(1)" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-burgundy-800/40 bg-parchment-200 hover:bg-parchment-300 text-burgundy-900 font-serifTC font-bold text-sm transition cursor-pointer">
+              ↺ 重新複習第一部分
+            </button>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+              <button id="btn-stage3-bookmark" onclick="toggleBookmark()" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-gold-500 bg-parchment-50 hover:bg-gold-100 text-burgundy-900 font-serifTC font-bold text-sm transition cursor-pointer">
+                ☆ 收藏至詞彙手札
+              </button>
+              <button id="btn-next-letter-cta" onclick="nextLetterFromStage3()" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-burgundy-900 via-burgundy-800 to-burgundy-900 hover:from-burgundy-800 hover:to-burgundy-700 text-gold-200 border-2 border-gold-400 font-serifTC font-bold text-base shadow-lg hover:shadow-gold-glow transition flex items-center justify-center gap-2 cursor-pointer">
+                <span id="next-letter-cta-label">學習下一個字母 (B)</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 text-center text-xs text-parchment-300/70 border-t border-gold-400/20 mt-6">
+    <p class="font-serifTC">
+      莎士比亞 A–Z 劇本詞彙殿堂 · 精選 26 個莎翁原創與普及經典詞彙 · 古典油畫典藏版 · 支援英式劇院語音朗讀
+    </p>
+  </footer>
+
+  <!-- ==================== GLOSSARY & BOOKMARKS MODAL DRAWER ==================== -->
+  <div id="glossary-modal" class="fixed inset-0 z-50 hidden" aria-modal="true" role="dialog" aria-labelledby="glossary-modal-title">
+    <!-- Backdrop -->
+    <div onclick="closeGlossaryModal()" class="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"></div>
+    
+    <!-- Drawer Panel -->
+    <div class="fixed inset-y-0 right-0 max-w-2xl w-full bg-burgundy-950 border-l-2 border-gold-400 shadow-2xl flex flex-col text-parchment-100 z-10">
+      
+      <!-- Modal Header -->
+      <div class="p-5 sm:p-6 bg-burgundy-900 border-b border-gold-400/40 flex items-center justify-between">
+        <div>
+          <h2 id="glossary-modal-title" class="font-serifTC font-black text-xl sm:text-2xl text-gold-200 flex items-center gap-2">
+            <span>📜 我的莎翁詞彙手札</span>
+          </h2>
+          <p class="text-xs text-parchment-300 mt-0.5">
+            檢視學習進度、收藏單字與莎劇經典原句總覽
+          </p>
+        </div>
+        <button onclick="closeGlossaryModal()" class="w-9 h-9 rounded-xl bg-burgundy-800 hover:bg-burgundy-700 border border-gold-400/50 text-gold-200 flex items-center justify-center font-bold cursor-pointer" aria-label="關閉手札">
+          ✕
+        </button>
+      </div>
+
+      <!-- Filter Tabs & Search -->
+      <div class="p-4 bg-burgundy-950/90 border-b border-gold-400/25 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 bg-burgundy-900 p-1 rounded-xl border border-gold-400/30">
+            <button id="tab-all" onclick="setGlossaryFilter('all')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 transition">
+              全部 (26)
+            </button>
+            <button id="tab-mastered" onclick="setGlossaryFilter('mastered')" class="px-3 py-1.5 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition">
+              已掌握 (<span id="tab-mastered-count">0</span>)
+            </button>
+            <button id="tab-bookmarked" onclick="setGlossaryFilter('bookmarked')" class="px-3 py-1.5 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition">
+              已收藏 (<span id="tab-bookmarked-count">0</span>)
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="copyBookmarkedNotes()" class="px-3 py-1.5 rounded-xl bg-burgundy-800 hover:bg-burgundy-700 border border-gold-400/50 text-gold-200 text-xs font-medium transition cursor-pointer">
+              📋 複製手札筆記
+            </button>
+          </div>
+        </div>
+
+        <input id="glossary-search" type="text" oninput="renderGlossaryList()" placeholder="搜尋字母、英文單字、中文釋義或劇作名稱..." class="w-full px-3.5 py-2 rounded-xl bg-burgundy-900 border border-gold-400/40 text-sm text-parchment-100 placeholder-parchment-300/50 focus:outline-none focus:border-gold-400" />
+      </div>
+
+      <!-- Glossary Items List -->
+      <div id="glossary-list-container" class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Modal Footer with Safe Reset -->
+      <div class="p-4 bg-burgundy-900 border-t border-gold-400/30 flex items-center justify-between text-xs">
+        <span class="text-parchment-300/75">點擊任一詞條可直接跳轉至該字母學習</span>
+        <div id="reset-progress-zone">
+          <button onclick="promptResetProgress()" class="text-rose-300 hover:text-rose-200 underline cursor-pointer">
+            重置學習紀錄
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== NON-INTRUSIVE TOAST NOTIFICATION ==================== -->
+  <div id="toast-banner" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform translate-y-3">
+    <div class="px-5 py-3 rounded-2xl bg-burgundy-950/95 text-gold-200 border border-gold-400 shadow-2xl text-xs sm:text-sm font-serifTC font-bold flex items-center gap-2.5 backdrop-blur-md">
+      <span id="toast-icon">🎨</span>
+      <span id="toast-message">訊息提示</span>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT APPLICATION LOGIC ==================== -->
+  <script>
+    /**
+     * 1. COMPLETE 26-WORD SHAKESPEAREAN A-Z DATASET
+     * Every entry includes authentic quote, play attribution, IPA, bilingual definitions,
+     * spoiler-free Part 1 oil-painting visual clue, literary commentary, and oil pigment palette.
+     */
+    const SHAKESPEARE_DATA = [
+      {
+        letter: 'A',
+        word: 'Assassination',
+        ipa: '/əˌsæs.ɪˈneɪ.ʃən/',
+        pos: 'n. 名詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Macbeth',
+        playZh: '《馬克白》',
+        actScene: 'Act 1, Scene 7 (第一幕第七場)',
+        zhDef: '刺殺、暗殺（尤指對君王或政治領袖的謀殺）',
+        enDef: 'The act of murdering a prominent or political figure by surprise attack.',
+        quoteEn: "If it were done when 'tis done, then 'twere well / It were done quickly: if the assassination / Could trammel up the consequence...",
+        highlightRegex: /\bassassination\b/gi,
+        quoteZh: '「倘若幹了就了結，那麼越快動手越好；倘若這場暗殺能夠羅網住一切後果……」',
+        visualClue: '油畫厚重暗紅與深褐筆觸勾勒出蘇格蘭古堡的血月夜空，一柄寒光閃爍的華麗短劍懸於王冠與金色因果鎖鏈之間，彷彿只要一擊落下，便會牽動無盡的命運連鎖反應。',
+        literaryNote: '莎士比亞在《馬克白》中首度將名詞「assassination」引入英語文學，用以刻畫馬克白在弑君前夕內心對「政治暗殺」及其連鎖因果的深深戰慄。',
+        palette: ['#4A121C', '#1D0E0C', '#D9A74A']
+      },
+      {
+        letter: 'B',
+        word: 'Bedazzled',
+        ipa: '/bɪˈdæz.əld/',
+        pos: 'adj. / v. 形容詞／動詞',
+        genre: '喜劇 Comedy',
+        playEn: 'The Taming of the Shrew',
+        playZh: '《馴悍記》',
+        actScene: 'Act 4, Scene 5 (第四幕第五場)',
+        zhDef: '使眼花繚亂、令人目眩神迷',
+        enDef: 'Greatly impressed, blinded, or confused by a brilliant light or splendor.',
+        quoteEn: "Pardon, old father, my mistaking eyes, / That have been so bedazzled with the sun...",
+        highlightRegex: /\bbedazzled\b/gi,
+        quoteZh: '「原諒我吧，老丈，我這雙看花了的眼睛，被太陽照得如此目眩神迷……」',
+        visualClue: '古典風景油畫天際升起一輪厚塗金黃顏料的烈日，萬丈光芒破雲斜射而下，令畫中旅人的雙眼被絢麗日芒照得目眩神迷、分不清眼前人影。',
+        literaryNote: '莎士比亞在《馴悍記》中創造了「bedazzled」一詞（由前綴 be- 加上 dazzle），生動描繪凱瑟琳娜順應彼特魯喬的玩笑，假稱自己被陽光晃得眼花而認錯人。',
+        palette: ['#63360F', '#202B3D', '#F2C14E']
+      },
+      {
+        letter: 'C',
+        word: 'Cold-blooded',
+        ipa: '/ˌkəʊldˈblʌd.ɪd/',
+        pos: 'adj. 形容詞',
+        genre: '歷史劇 History',
+        playEn: 'King John',
+        playZh: '《約翰王》',
+        actScene: 'Act 3, Scene 1 (第三幕第一場)',
+        zhDef: '冷血的、無情的、缺乏同情心的',
+        enDef: 'Lacking emotion, pity, or warmth; cruel and unfeeling.',
+        quoteEn: "Thou cold-blooded slave, / Hast thou not spoke like thunder on my side...",
+        highlightRegex: /\bcold-blooded\b/gi,
+        quoteZh: '「你這冷血無情的奴才，難道你先前不曾在我這邊如雷霆般發聲嗎……」',
+        visualClue: '普魯士藍與鉛白油彩交織的暴風雲層下，一顆本該熾熱的心臟卻被尖銳的晶瑩冰柱與寒霜層層封凍，散發出毫無溫度的凜冽氣息。',
+        literaryNote: '在伊莉莎白時代的體液學說中，人們相信勇敢與熱情源於「熱血」。莎士比亞在《約翰王》中首創複合形容詞「cold-blooded」，賦予其「怯懦、冷酷無情」的心理喻義。',
+        palette: ['#153247', '#1C1421', '#9AD9EA']
+      },
+      {
+        letter: 'D',
+        word: 'Dauntless',
+        ipa: '/ˈdɔːnt.ləs/',
+        pos: 'adj. 形容詞',
+        genre: '歷史劇 History',
+        playEn: 'Henry VI, Part 3',
+        playZh: '《亨利六世（下）》',
+        actScene: 'Act 3, Scene 3 (第三幕第三場)',
+        zhDef: '無畏的、大膽的、不屈不撓的',
+        enDef: 'Showing fearlessness and determination; incapable of being intimidated.',
+        quoteEn: "Of dauntless spirit, / And having thee to stand upon my side...",
+        highlightRegex: /\bdauntless\b/gi,
+        quoteZh: '「懷抱著無畏的精神，又有你並肩立於我身側……」',
+        visualClue: '驚濤駭浪拍岸的陰雲下，一位身披精鋼甲冑、頭戴金羽頭盔的騎士高舉深紅紋章盾牌與長劍，迎向漫天飛箭屹立不搖，彰顯無所畏懼的勇氣。',
+        literaryNote: '莎士比亞將古法語借詞「daunt」（威嚇、使氣餒）加上否定後綴「-less」，在《亨利六世》及《馬克白》中塑造出「dauntless」一詞，讚頌無所畏懼的英雄氣概。',
+        palette: ['#4A1520', '#1E2230', '#E3B448']
+      },
+      {
+        letter: 'E',
+        word: 'Eventful',
+        ipa: '/ɪˈvent.fəl/',
+        pos: 'adj. 形容詞',
+        genre: '喜劇 Comedy',
+        playEn: 'As You Like It',
+        playZh: '《皆大歡喜》',
+        actScene: 'Act 2, Scene 7 (第二幕第七場)',
+        zhDef: '多事的、充滿重大事件的、波瀾壯闊的',
+        enDef: 'Marked by interesting, exciting, or significant events.',
+        quoteEn: "Last scene of all, / That ends this strange eventful history, / Is second childishness and mere oblivion...",
+        highlightRegex: /\beventful\b/gi,
+        quoteZh: '「最後一幕，為這段離奇而多事的人生歷史畫下句點，是二度童年與徹底的遺忘……」',
+        visualClue: '深紅劇場帷幕拉開的油畫舞台上，巨大的金色命運之輪與古典沙漏並立，輪周鑲嵌著搖籃、書卷、長劍與王冠等人生七幕徽記，記錄波瀾起伏的一生。',
+        literaryNote: '出自《皆大歡喜》中憂鬱的賈奎斯著名的「世界是一座舞台（All the world’s a stage）」獨白，莎士比亞創造「eventful」一詞來濃縮人世間接連不斷的戲劇性波折。',
+        palette: ['#243B2F', '#2E1A1C', '#DFB454']
+      },
+      {
+        letter: 'F',
+        word: 'Fanged',
+        ipa: '/fæŋd/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Hamlet',
+        playZh: '《哈姆雷特》',
+        actScene: 'Act 3, Scene 4 (第三幕第四場)',
+        zhDef: '有毒牙的、長著尖牙的',
+        enDef: 'Having long, sharp, venomous teeth or fangs.',
+        quoteEn: "My two schoolfellows, / Whom I will trust as I will adders fanged...",
+        highlightRegex: /\bfanged\b/gi,
+        quoteZh: '「我那兩位同窗好友，我對他們的信任，就如同我信任長著毒牙的蝰蛇一般……」',
+        visualClue: '宮廷燭光靜物油畫中，兩條以鉻綠與群青厚塗描繪的盤踞蝰蛇正張開大口，露出森白銳利的毒牙與分叉紅信，逼視著前方的王室金杯與密信。',
+        literaryNote: '莎士比亞在《哈姆雷特》中將名詞「fang」轉化為過去分詞形容詞「fanged」，讓哈姆雷特以此比喻奉國王之命監視自己的兩位昔日同窗如同毒蛇般危險。',
+        palette: ['#182E24', '#2C1116', '#C8DC68']
+      },
+      {
+        letter: 'G',
+        word: 'Green-eyed',
+        ipa: '/ˌɡriːnˈaɪd/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Othello',
+        playZh: '《奧賽羅》',
+        actScene: 'Act 3, Scene 3 (第三幕第三場)',
+        zhDef: '嫉妒的、眼紅的（源自「綠眼怪物」典故）',
+        enDef: 'Jealous or envious (alluding to Shakespeare’s "green-eyed monster").',
+        quoteEn: "O, beware, my lord, of jealousy; / It is the green-eyed monster which doth mock / The meat it feeds on.",
+        highlightRegex: /\bgreen-eyed\b/gi,
+        quoteZh: '「哦，主帥，千萬提防嫉妒；它是一頭綠眼的怪物，一面吞噬血肉，一面嘲弄它的獵物。」',
+        visualClue: '厚重深紅絲絨帷幕的陰影深處，一雙散發幽幽祖母綠油彩光芒的巨獸之眼正緊盯著飄落的白色繡花手帕，彷彿隨時會將理智吞噬殆盡。',
+        literaryNote: '在《奧賽羅》中，奸臣伊阿古將嫉妒比喻為「green-eyed monster」，從此「green-eyed」成為英語中表達「嫉妒、眼紅」最經典的成語意象。',
+        palette: ['#123325', '#360E17', '#56D696']
+      },
+      {
+        letter: 'H',
+        word: 'Heartache',
+        ipa: '/ˈhɑːt.eɪk/',
+        pos: 'n. 名詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Hamlet',
+        playZh: '《哈姆雷特》',
+        actScene: 'Act 3, Scene 1 (第三幕第一場)',
+        zhDef: '心痛、悲傷、內心的煎熬',
+        enDef: 'Emotional anguish, deep sorrow, or grief.',
+        quoteEn: "To die, to sleep— / No more—and by a sleep to say we end / The heartache and the thousand natural shocks...",
+        highlightRegex: /\bheartache\b/gi,
+        quoteZh: '「死去，睡去——僅此而已；若能藉著一場長眠，宣告我們終結了這份心痛與千般肉身折磨……」',
+        visualClue: '艾爾西諾城堡的暮色油畫中，一顆被銀色荊棘與兩支利箭刺穿的深紅之心靜靜懸浮在藍色安眠藥瓶之上，訴說著難以言喻的精神苦痛。',
+        literaryNote: '在《哈姆雷特》最著名的「生存還是毀滅（To be, or not to be）」獨白中，莎士比亞首次將「heart」與「ache」合為一字，精準捕捉靈魂深處的悲慟。',
+        palette: ['#42111D', '#1D1729', '#F09388']
+      },
+      {
+        letter: 'I',
+        word: 'Inaudible',
+        ipa: '/ɪnˈɔː.də.bəl/',
+        pos: 'adj. 形容詞',
+        genre: '喜劇 Comedy',
+        playEn: "All's Well That Ends Well",
+        playZh: '《終成眷屬》',
+        actScene: 'Act 5, Scene 3 (第五幕第三場)',
+        zhDef: '聽不見的、無聲的、難以察覺的',
+        enDef: 'Unable to be heard; silent or imperceptible.',
+        quoteEn: "For we are old, and on our quick'st decrees / The inaudible and noiseless foot of Time / Steals ere we can effect them.",
+        highlightRegex: /\binaudible\b/gi,
+        quoteZh: '「因為我們已然年邁，在我們最急切的政令尚未施行之前，時間那聽不見也無聲息的腳步早已悄然掠過。」',
+        visualClue: '群青夜色籠罩的畫布中央，展開潔白羽翼的古典沙漏靜靜流淌，時間之羽輕拂過靜止的金色聲波圓環與王室詔書，萬籟俱寂無聲。',
+        literaryNote: '莎士比亞為拉丁詞根「audible」加上否定前綴「in-」，創造了「inaudible」，並以「時間無聲的腳步」這一詩意擬人法，寫盡歲月流逝的悄無聲息。',
+        palette: ['#18213D', '#29172B', '#B4CCF5']
+      },
+      {
+        letter: 'J',
+        word: 'Jaded',
+        ipa: '/ˈdʒeɪ.dɪd/',
+        pos: 'adj. 形容詞',
+        genre: '歷史劇 History',
+        playEn: 'Henry VIII',
+        playZh: '《亨利八世》',
+        actScene: 'Act 3, Scene 2 (第三幕第二場)',
+        zhDef: '疲憊厭倦的、心力交瘁的、受愚弄的',
+        enDef: 'Tired, bored, or lacking enthusiasm, typically after having had too much of something.',
+        quoteEn: "To be thus jaded by a piece of scarlet, / Farewell nobility!",
+        highlightRegex: /\bjaded\b/gi,
+        quoteZh: '「竟被一襲紅衣如此折騰得精疲力竭、受盡戲弄，別了，高貴的尊嚴！」',
+        visualClue: '都鐸宮廷厚重緋紅主教帽與權杖之下，一匹昔日神駿的戰馬如今低垂著頭、閉目疲憊不堪，腳邊散落著權力遊戲的金幣。',
+        literaryNote: '「jade」原指瘦弱疲憊的老馬，莎士比亞在《亨利八世》中將其轉化為形容詞「jaded」，形容貴族被紅衣主教沃爾西操弄得筋疲力盡、心灰意冷。',
+        palette: ['#42131E', '#261B15', '#D6A349']
+      },
+      {
+        letter: 'K',
+        word: 'King-becoming',
+        ipa: '/ˈkɪŋ.bɪˌkʌm.ɪŋ/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Macbeth',
+        playZh: '《馬克白》',
+        actScene: 'Act 4, Scene 3 (第四幕第三場)',
+        zhDef: '適合君王的、具王者風範與美德的',
+        enDef: 'Befitting or worthy of a true king; regal and virtuous.',
+        quoteEn: "The king-becoming graces, / As justice, verity, temperance, stableness...",
+        highlightRegex: /\bking-becoming\b/gi,
+        quoteZh: '「那些符合王者風範的美德，諸如正義、真誠、節制與堅定……」',
+        visualClue: '古典加冕大殿的聖光之中，鑲滿紅藍寶石的黃金王冠高居絲絨軟墊上，四周陳列著正義天平、真誠明鏡、節制聖杯與堅定石柱。',
+        literaryNote: '在《馬克白》第四幕中，流亡的王子馬爾科姆列舉十二項治國美德，並獨創複合詞「king-becoming」，與篡位暴君馬克白形成鮮明對比。',
+        palette: ['#331029', '#19213B', '#F0C95B']
+      },
+      {
+        letter: 'L',
+        word: 'Lonely',
+        ipa: '/ˈləʊn.li/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Coriolanus',
+        playZh: '《科利奧蘭納斯》',
+        actScene: 'Act 4, Scene 1 (第四幕第一場)',
+        zhDef: '孤獨的、寂寞的、人跡罕至的',
+        enDef: 'Sad because one has no friends or company; solitary and isolated.',
+        quoteEn: "I go alone, / Like to a lonely dragon, that his fen / Makes fear'd and talk'd of more than seen...",
+        highlightRegex: /\blonely\b/gi,
+        quoteZh: '「我獨自離去，宛如一頭孤獨的巨龍，盤踞在令人生畏、只聞其名卻難見其蹤的沼澤深處……」',
+        visualClue: '冷灰藍與墨綠油彩暈染的荒涼沼澤深處，一頭孤高的有翼巨龍獨自棲息在蘆葦迷霧裡，天際只有一顆清冷的孤星與遠方微光相伴。',
+        literaryNote: '在莎士比亞之前英語只有「alone」，莎士比亞在《科利奧蘭納斯》中使「lonely」大放異彩，將被放逐的驕傲統帥比作沼澤中的孤龍，情感張力十足。',
+        palette: ['#162C36', '#1F1929', '#A2C6DB']
+      },
+      {
+        letter: 'M',
+        word: 'Moonbeam',
+        ipa: '/ˈmuːn.biːm/',
+        pos: 'n. 名詞',
+        genre: '喜劇 Comedy',
+        playEn: "A Midsummer Night's Dream",
+        playZh: '《仲夏夜之夢》',
+        actScene: 'Act 3, Scene 1 (第三幕第一場)',
+        zhDef: '月光、一縷月光',
+        enDef: 'A ray of light from the moon.',
+        quoteEn: "And pluck the wings from painted butterflies / To fan the moonbeams from his sleeping eyes...",
+        highlightRegex: /\bmoonbeams?\b/gi,
+        quoteZh: '「再採下彩蝶的翅膀，為他沉睡的雙眼輕輕拂去灑落的月光……」',
+        visualClue: '仲夏夜森林的深藍油畫夜幕中，一彎銀白新月傾瀉下柔和的銀金色月光束，數隻彩繪蝴蝶翩翩飛舞，為花叢間沉睡者的眼瞼遮擋夜色清輝。',
+        literaryNote: '莎士比亞在《仲夏夜之夢》中將「moon」與「beam」結合為「moonbeam」，營造出雅典森林裡如夢似幻的精靈仙境氛圍。',
+        palette: ['#142042', '#211536', '#EBF2FF']
+      },
+      {
+        letter: 'N',
+        word: 'New-fangled',
+        ipa: '/ˌnjuːˈfæŋ.ɡəld/',
+        pos: 'adj. 形容詞',
+        genre: '喜劇 Comedy',
+        playEn: "Love's Labour's Lost",
+        playZh: '《愛的徒勞》',
+        actScene: 'Act 1, Scene 1 (第一幕第一場)',
+        zhDef: '新奇時髦的、標新立異的、花俏的',
+        enDef: 'Different from what one is used to; objectionably new or overly fashionable.',
+        quoteEn: "At Christmas I no more desire a rose / Than wish a snow in May's new-fangled mirth...",
+        highlightRegex: /\bnew-fangled\b/gi,
+        quoteZh: '「我在聖誕節不會渴望玫瑰，正如我不會在五月新奇花俏的歡愉中盼望白雪……」',
+        visualClue: '冬日白雪與五月繁花在古典靜物油畫中奇異並置，中央一朵鑲嵌發條齒輪與華麗金絲緞帶的奇異玫瑰正標新立異地綻放。',
+        literaryNote: '莎士比亞在《愛的徒勞》與《皆大歡喜》中推廣了「new-fangled」一詞，用來調侃年輕貴族追逐新奇時髦、卻違背自然時序的誇張風氣。',
+        palette: ['#33163B', '#1A3033', '#F0A365']
+      },
+      {
+        letter: 'O',
+        word: 'Outbreak',
+        ipa: '/ˈaʊt.breɪk/',
+        pos: 'n. 名詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Hamlet',
+        playZh: '《哈姆雷特》',
+        actScene: 'Act 2, Scene 1 (第二幕第一場)',
+        zhDef: '爆發、突發（情緒、衝突或事件的突然迸發）',
+        enDef: 'The sudden or violent start of something unwelcome, such as war, disease, or passion.',
+        quoteEn: "That they may seem the taints of liberty, / The flash and outbreak of a fiery mind...",
+        highlightRegex: /\boutbreak\b/gi,
+        quoteZh: '「好讓這些行為看起來像是自由奔放的瑕疵，是一顆熾熱心靈的閃光與爆發……」',
+        visualClue: '巴洛克暗調油畫中央，一盞原本緊閉的文藝復興雕花銅燈驟然迸裂，厚塗朱紅與金黃火焰如熔岩般衝破束縛，火星四濺照亮夜空。',
+        literaryNote: '莎士比亞在《哈姆雷特》中首度將動詞短語「break out」名詞化為「outbreak」，用以形容年輕人熾烈心性難以抑制的突然迸發。',
+        palette: ['#451216', '#1F0F14', '#FCA326']
+      },
+      {
+        letter: 'P',
+        word: 'Premeditated',
+        ipa: '/ˌpriːˈmed.ɪ.teɪ.tɪd/',
+        pos: 'adj. 形容詞',
+        genre: '歷史劇 History',
+        playEn: 'Henry VI, Part 1',
+        playZh: '《亨利六世（上）》',
+        actScene: 'Act 3, Scene 1 (第三幕第一場)',
+        zhDef: '預謀的、蓄意的、事先精心策劃的',
+        enDef: 'Thought out or planned beforehand; deliberate.',
+        quoteEn: "Comest thou with deep premeditated lines, / With written pamphlets studiously devised?",
+        highlightRegex: /\bpremeditated\b/gi,
+        quoteZh: '「你帶著事先深思熟慮寫就的台詞，以及精心策劃的書面小冊子而來嗎？」',
+        visualClue: '燭光搖曳的書房靜物油畫中，西洋棋盤上黑白棋子對峙，旁側鋪開寫滿密文的羊皮紙小冊子、沾墨鵝毛筆與深紅火漆印章，顯見每一步皆經過周密算計。',
+        literaryNote: '莎士比亞在《亨利六世（上）》中運用「premeditated」一詞，刻畫英國宮廷貴族在國會對質前夕，早已暗中撰寫講稿、步步為營的政治權謀。',
+        palette: ['#2B1933', '#1B2533', '#DFB85C']
+      },
+      {
+        letter: 'Q',
+        word: 'Quarrelsome',
+        ipa: '/ˈkwɒr.əl.səm/',
+        pos: 'adj. 形容詞',
+        genre: '喜劇 Comedy',
+        playEn: 'As You Like It',
+        playZh: '《皆大歡喜》',
+        actScene: 'Act 5, Scene 4 (第五幕第四場)',
+        zhDef: '好爭吵的、愛挑剔的、喜歡鬥嘴的',
+        enDef: 'Given to or characterized by arguing or quarreling.',
+        quoteEn: "The fifth, the Countercheck Quarrelsome; the sixth, the Lie with Circumstance...",
+        highlightRegex: /\bquarrelsome\b/gi,
+        quoteZh: '「第五步，叫做『好鬥的反駁』；第六步，叫做『委婉的指斥撒謊』……」',
+        visualClue: '兩張針鋒相對、眉頭緊鎖的戲劇面具之間，兩柄銀白細劍在半空中猛烈交鋒迸出金色火花，筆觸動感十足地描繪出唇槍舌劍的喜劇爭辯。',
+        literaryNote: '出自《皆大歡喜》弄臣試金石（Touchstone）幽默解析「吵架的七個步驟」，莎士比亞在此普及了「quarrelsome」一詞，極具喜劇諷刺效果。',
+        palette: ['#42181F', '#21263B', '#F0CF62']
+      },
+      {
+        letter: 'R',
+        word: 'Radiance',
+        ipa: '/ˈreɪ.di.əns/',
+        pos: 'n. 名詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'King Lear',
+        playZh: '《李爾王》',
+        actScene: 'Act 1, Scene 1 (第一幕第一場)',
+        zhDef: '光輝、光芒、容光煥發',
+        enDef: 'Light or heat as emitted or reflected by something; great brightness or joy.',
+        quoteEn: "For, by the sacred radiance of the sun, / The mysteries of Hecate, and the night...",
+        highlightRegex: /\bradiance\b/gi,
+        quoteZh: '「因為我憑著太陽神聖的光輝、赫卡忒的秘儀以及黑夜起誓……」',
+        visualClue: '宛如巴洛克祭壇畫般的壯麗天穹，厚重烏雲裂開處，一輪金碧輝煌的太陽迸發出萬丈神聖光輝，莊嚴照耀著下方的古典石祭壇與星月徽記。',
+        literaryNote: '莎士比亞在《李爾王》開篇暴怒誓言中首度使用名詞「radiance」，以太陽神聖的光輝對比李爾王即將陷入的盲目與黑暗。',
+        palette: ['#45240D', '#211429', '#FAD06C']
+      },
+      {
+        letter: 'S',
+        word: 'Swagger',
+        ipa: '/ˈswæɡ.ər/',
+        pos: 'v. / n. 動詞／名詞',
+        genre: '喜劇 Comedy',
+        playEn: "A Midsummer Night's Dream",
+        playZh: '《仲夏夜之夢》',
+        actScene: 'Act 3, Scene 1 (第三幕第一場)',
+        zhDef: '大搖大擺地走、神氣活現、虛張聲勢',
+        enDef: 'Walk or behave in a very confident and typically arrogant or aggressive way.',
+        quoteEn: "What hempen home-spuns have we swaggering here, / So near the cradle of the fairy queen?",
+        highlightRegex: /\bswaggering\b/gi,
+        quoteZh: '「是哪群穿著粗麻布衣的鄉巴佬在這裡大搖大擺，竟敢如此靠近仙后的搖籃？」',
+        visualClue: '森林林間的戲劇風俗畫裡，一位頭戴誇張大羽帽、身披綠斗篷、腳蹬長筒皮靴的滑稽工匠雙手叉腰、挺胸闊步大搖大擺走過仙后花叢搖籃旁。',
+        literaryNote: '莎士比亞在《仲夏夜之夢》及《亨利四世》中讓「swagger」成為經典動詞，生動描繪小人物在仙境或酒館中故作威風、搖擺闊步的滑稽模樣。',
+        palette: ['#1E3A2A', '#331930', '#EFC054']
+      },
+      {
+        letter: 'T',
+        word: 'Tranquil',
+        ipa: '/ˈtræŋ.kwɪl/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Othello',
+        playZh: '《奧賽羅》',
+        actScene: 'Act 3, Scene 3 (第三幕第三場)',
+        zhDef: '寧靜的、平靜的、安詳的',
+        enDef: 'Free from disturbance; calm, serene, and peaceful.',
+        quoteEn: "O, now, for ever / Farewell the tranquil mind! farewell content!",
+        highlightRegex: /\btranquil\b/gi,
+        quoteZh: '「哦，從今以後，永遠別了，寧靜的心靈！別了，安詳的滿足！」',
+        visualClue: '威尼斯風景油畫般的深藍暮色下，瀉湖水面如鏡倒映著銀月與遠方聖馬可鐘樓，一隻純白和平鴿銜著橄欖枝靜靜掠過水面，展現極致平靜。',
+        literaryNote: '當疑心開始吞噬奧賽羅時，他悲嘆自己將永遠告別「tranquil mind（寧靜的心靈）」，莎士比亞藉此詞彙反襯出悲劇英雄內心即將掀起的狂瀾。',
+        palette: ['#153140', '#1A2036', '#98DCEB']
+      },
+      {
+        letter: 'U',
+        word: 'Unreal',
+        ipa: '/ʌnˈrɪəl/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Macbeth',
+        playZh: '《馬克白》',
+        actScene: 'Act 3, Scene 4 (第三幕第四場)',
+        zhDef: '虛幻的、不真實的、幻覺般的',
+        enDef: 'So strange as to appear imaginary; not real or illusory.',
+        quoteEn: "Hence, horrible shadow! / Unreal mockery, hence!",
+        highlightRegex: /\bunreal\b/gi,
+        quoteZh: '「滾開，可怕的鬼影！虛幻的嘲弄，給我滾開！」',
+        visualClue: '幽暗宴會廳的雕花王座之上，一道半透明的幽靈身影以薄塗冷灰白油彩勾勒，從傾倒的酒杯與煙霧中緩緩浮現，虛無縹緲卻令國王驚恐萬分。',
+        literaryNote: '在《馬克白》著名的宴會鬼魂一幕中，莎士比亞創造了「unreal」一詞，描繪馬克白面對班柯鬼魂時，理性與幻覺徹底崩解的驚悚時刻。',
+        palette: ['#221B38', '#33101B', '#C2C9F7']
+      },
+      {
+        letter: 'V',
+        word: 'Vulnerable',
+        ipa: '/ˈvʌl.nər.ə.bəl/',
+        pos: 'adj. 形容詞',
+        genre: '悲劇 Tragedy',
+        playEn: 'Macbeth',
+        playZh: '《馬克白》',
+        actScene: 'Act 5, Scene 8 (第五幕第八場)',
+        zhDef: '易受傷的、脆弱的、有破綻可乘的',
+        enDef: 'Susceptible to physical or emotional attack or harm.',
+        quoteEn: "Let fall thy blade on vulnerable crests; / I bear a charmed life, which must not yield / To one of woman born.",
+        highlightRegex: /\bvulnerable\b/gi,
+        quoteZh: '「把你的利刃砍向那些易受傷的頭盔吧；我身負魔咒護體，絕不會屈服於任何婦人所生之人。」',
+        visualClue: '金屬光澤厚塗描繪的騎士精鋼頭盔表面赫然裂開一道閃爍朱紅光芒的致命破綻，一柄寒光利劍正自上方直劈而下，揭示暗藏的弱點。',
+        literaryNote: '莎士比亞在《馬克白》終戰對決中將拉丁詞根「vulnerabilis」引入英語，馬克白自以為無堅不摧，殊不知「vulnerable」正是他命運崩塌的預兆。',
+        palette: ['#40121C', '#22242C', '#E3846B']
+      },
+      {
+        letter: 'W',
+        word: 'Watchdog',
+        ipa: '/ˈwɒtʃ.dɒɡ/',
+        pos: 'n. 名詞',
+        genre: '傳奇劇 Romance',
+        playEn: 'The Tempest',
+        playZh: '《暴風雨》',
+        actScene: 'Act 1, Scene 2 (第一幕第二場)',
+        zhDef: '看門狗、守衛者、警戒者',
+        enDef: 'A dog kept to guard private property; a vigilant guardian.',
+        quoteEn: "Hark, hark! / Bow-wow. / The watch-dogs bark!",
+        highlightRegex: /\bwatch-dogs?\b/gi,
+        quoteZh: '「聽啊，聽啊！汪汪！看門狗在吠叫了！」',
+        visualClue: '月光灑落的海岸城堡石牆垛口上，一隻雙耳豎起、目光如炬的忠誠獵犬正對著海風警覺吠叫，身旁懸掛著守夜人的暖金色提燈。',
+        literaryNote: '出自《暴風雨》精靈愛麗兒唱給迷途王子斐迪南聽的歌謠，莎士比亞將「watch」與「dog」合為一詞，後來更延伸為新聞與公民社會「監督者」的代名詞。',
+        palette: ['#1A2B3D', '#2B1D15', '#E8C56E']
+      },
+      {
+        letter: 'X',
+        word: 'Xanthippe',
+        ipa: '/zænˈθɪp.i/',
+        pos: 'n. 名詞（專有名詞轉喻）',
+        genre: '喜劇 Comedy',
+        playEn: 'The Taming of the Shrew',
+        playZh: '《馴悍記》',
+        actScene: 'Act 1, Scene 2 (第一幕第二場)',
+        zhDef: '悍婦、潑婦（原指古希臘哲學家蘇格拉底之妻）',
+        enDef: 'An ill-tempered, scolding, or shrewish wife (named after Socrates’ wife).',
+        quoteEn: "As old as Sibyl, and as curst and shrewd / As Socrates' Xanthippe, or a worse, / She moves me not...",
+        highlightRegex: /\bXanthippe\b/gi,
+        quoteZh: '「就算她像西比爾女先知一樣年邁，像蘇格拉底的悍妻贊西佩一樣暴躁潑辣，甚至更甚於此，也動搖不了我……」',
+        visualClue: '古希臘雅典大理石愛奧尼柱廊前，蘇格拉底大理石半身像神情無奈，身旁電閃雷鳴與一張怒目圓睜的戲劇面具掀起一場家庭風暴。',
+        literaryNote: '莎士比亞在《馴悍記》中巧妙運用古典典故，以蘇格拉底之妻「Xanthippe」作為「悍婦」的代名詞，展現男主角彼特魯喬毫不畏懼的豪語。',
+        palette: ['#341733', '#202B38', '#F0A365']
+      },
+      {
+        letter: 'Y',
+        word: 'Yelping',
+        ipa: '/ˈjel.pɪŋ/',
+        pos: 'adj. / v. 形容詞／動詞',
+        genre: '歷史劇 History',
+        playEn: 'Henry VI, Part 1',
+        playZh: '《亨利六世（上）》',
+        actScene: 'Act 4, Scene 2 (第四幕第二場)',
+        zhDef: '狂吠的、尖叫的、喧鬧吠叫的',
+        enDef: 'Uttering sharp, high-pitched barks or cries.',
+        quoteEn: "A little herd of England's timorous deer, / Maz'd with a yelping kennel of French curs!",
+        highlightRegex: /\byelping\b/gi,
+        quoteZh: '「一小群英格蘭膽怯的鹿群，被一群狂吠不止的法蘭西獵犬追得迷失方向！」',
+        visualClue: '古典歐洲狩獵油畫構圖，晨霧瀰漫的法蘭西荒原上，兩隻張口狂吠的凶猛獵犬正緊追著一頭驚惶回首、鹿角高聳的金色小鹿。',
+        literaryNote: '莎士比亞在《亨利六世（上）》中以「yelping」形容敵軍如成群狂吠的獵犬包圍英軍，將戰場上的喧囂與危機感化為極具畫面感的聽覺意象。',
+        palette: ['#331F16', '#1F3024', '#E37659']
+      },
+      {
+        letter: 'Z',
+        word: 'Zany',
+        ipa: '/ˈzeɪ.ni/',
+        pos: 'n. / adj. 名詞／形容詞',
+        genre: '喜劇 Comedy',
+        playEn: "Love's Labour's Lost",
+        playZh: '《愛的徒勞》',
+        actScene: 'Act 5, Scene 2 (第五幕第二場)',
+        zhDef: '滑稽小丑、古怪可笑的（源自義大利即興喜劇丑角）',
+        enDef: 'A comical buffoon or clown; amusingly unconventional and idiosyncratic.',
+        quoteEn: "Some carry-tale, some please-man, some slight zany, / Some mumble-news, some trencher-knight, some Dick...",
+        highlightRegex: /\bzany\b/gi,
+        quoteZh: '「總有些搬弄是非者、馬屁精、輕浮的滑稽小丑、嚼舌根的傢伙、食客騎士……」',
+        visualClue: '文藝復興宮廷風俗油畫筆觸描繪出紅綠菱格紋彩衣與三叉金鈴帽，宮廷弄臣正興高采烈地單腳跳躍、拋接彩球與戲劇面具，充滿詼諧喜感。',
+        literaryNote: '源自義大利即興喜劇（Commedia dell’arte）的丑角「Zanni」，莎士比亞在《愛的徒勞》與《第十二夜》中將「zany」引進英語，意指滑稽逗趣的小丑。',
+        palette: ['#33143B', '#162F36', '#FAD06C']
+      }
+    ];
+
+    /**
+     * 2. PROCEDURAL CLASSICAL OIL-ON-CANVAS PAINTERLY ENGINE (HTML5 CANVAS 2D)
+     * Renders museum-grade Renaissance/Baroque oil paintings for every letter A–Z:
+     * - Layered oil underpainting & directional bristle strokes (impasto ridges & glazes)
+     * - Word-specific narrative composition directly illustrating each word's meaning
+     * - Rembrandt chiaroscuro lighting, woven linen canvas grain & aged varnish
+     * - Ornate Baroque gilded museum frame & brass plaque (zero English word spoilers)
+     */
+    function createSeededRandom(seed) {
+      let s = seed % 2147483647;
+      if (s <= 0) s += 2147483646;
+      return function() {
+        s = (s * 16807) % 2147483647;
+        return (s - 1) / 2147483646;
+      };
+    }
+
+    function hexToRgb(hex) {
+      const clean = hex.replace('#', '');
+      const num = parseInt(clean, 16);
+      return {
+        r: (num >> 16) & 255,
+        g: (num >> 8) & 255,
+        b: num & 255
+      };
+    }
+
+    function shiftColor(hex, deltaR, deltaG, deltaB, alpha = 1) {
+      const { r, g, b } = hexToRgb(hex);
+      const nr = Math.min(255, Math.max(0, Math.round(r + deltaR)));
+      const ng = Math.min(255, Math.max(0, Math.round(g + deltaG)));
+      const nb = Math.min(255, Math.max(0, Math.round(b + deltaB)));
+      return `rgba(${nr}, ${ng}, ${nb}, ${alpha})`;
+    }
+
+    // Draw a realistic multi-bristle oil brushstroke with shadow edge and impasto ridge
+    function drawOilBrushStroke(ctx, x1, y1, x2, y2, width, baseHex, rng, alpha = 0.85) {
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      const perpX = -Math.sin(angle);
+      const perpY = Math.cos(angle);
+      const midX = (x1 + x2) * 0.5 + perpX * (rng() - 0.5) * width * 0.55;
+      const midY = (y1 + y2) * 0.5 + perpY * (rng() - 0.5) * width * 0.55;
+
+      ctx.save();
+      ctx.lineCap = 'round';
+
+      // 1. Dark paint-ridge shadow under stroke
+      ctx.beginPath();
+      ctx.moveTo(x1 + perpX * 1.6, y1 + perpY * 1.6);
+      ctx.quadraticCurveTo(midX + perpX * 1.6, midY + perpY * 1.6, x2 + perpX * 1.6, y2 + perpY * 1.6);
+      ctx.strokeStyle = shiftColor(baseHex, -36, -34, -30, alpha * 0.65);
+      ctx.lineWidth = width * 1.05;
+      ctx.stroke();
+
+      // 2. Main rich oil pigment body
+      const jitter = (rng() - 0.5) * 24;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.quadraticCurveTo(midX, midY, x2, y2);
+      ctx.strokeStyle = shiftColor(baseHex, jitter, jitter * 0.9, jitter * 0.8, alpha);
+      ctx.lineWidth = width;
+      ctx.stroke();
+
+      // 3. Individual hog-bristle hair tracks
+      const tracks = 3;
+      for (let t = 0; t < tracks; t++) {
+        const offset = ((t / (tracks - 1)) - 0.5) * width * 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x1 + perpX * offset, y1 + perpY * offset);
+        ctx.quadraticCurveTo(midX + perpX * offset, midY + perpY * offset, x2 + perpX * offset, y2 + perpY * offset);
+        ctx.strokeStyle = t === 0
+          ? shiftColor(baseHex, 34, 30, 22, alpha * 0.55)
+          : shiftColor(baseHex, -18, -18, -16, alpha * 0.45);
+        ctx.lineWidth = Math.max(1.2, width * 0.16);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    // Fill an arbitrary path with rich painterly brushstrokes & impasto highlights
+    function paintImpastoShape(ctx, pathFn, baseHex, lightHex, shadowHex, rng, strokeAngle = -0.45, strokeCount = 26) {
+      ctx.save();
+      pathFn(ctx);
+      ctx.fillStyle = baseHex;
+      ctx.fill();
+
+      // Clip inside shape for directional oil brushwork
+      ctx.save();
+      pathFn(ctx);
+      ctx.clip();
+
+      const cosA = Math.cos(strokeAngle);
+      const sinA = Math.sin(strokeAngle);
+      for (let i = 0; i < strokeCount; i++) {
+        const cx = 140 + rng() * 680;
+        const cy = 70 + rng() * 480;
+        const len = 28 + rng() * 65;
+        const w = 7 + rng() * 14;
+        const useLight = rng() > 0.48;
+        drawOilBrushStroke(
+          ctx,
+          cx - cosA * len * 0.5,
+          cy - sinA * len * 0.5,
+          cx + cosA * len * 0.5,
+          cy + sinA * len * 0.5,
+          w,
+          useLight ? lightHex : shadowHex,
+          rng,
+          0.52
+        );
+      }
+      ctx.restore();
+
+      // Impasto rim highlight & dark oil glaze contour
+      pathFn(ctx);
+      ctx.strokeStyle = shiftColor(lightHex, 20, 18, 12, 0.78);
+      ctx.lineWidth = 2.6;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Paint the textured oil-on-canvas background with hundreds of overlapping brushstrokes
+    function paintOilGround(ctx, x, y, w, h, palette, rng) {
+      const [c1, c2, gold] = palette;
+      const grad = ctx.createLinearGradient(x, y, x + w, y + h);
+      grad.addColorStop(0, c1);
+      grad.addColorStop(0.58, c2);
+      grad.addColorStop(1, '#120806');
+      ctx.fillStyle = grad;
+      ctx.fillRect(x, y, w, h);
+
+      // Broad atmospheric underpainting clouds/drapery strokes
+      for (let i = 0; i < 165; i++) {
+        const sx = x + rng() * w;
+        const sy = y + rng() * h;
+        const angle = -0.55 + (rng() - 0.5) * 0.7;
+        const len = 55 + rng() * 110;
+        const bw = 16 + rng() * 28;
+        const pick = rng();
+        const col = pick < 0.45 ? c1 : (pick < 0.85 ? c2 : gold);
+        drawOilBrushStroke(
+          ctx,
+          sx - Math.cos(angle) * len * 0.5,
+          sy - Math.sin(angle) * len * 0.5,
+          sx + Math.cos(angle) * len * 0.5,
+          sy + Math.sin(angle) * len * 0.5,
+          bw,
+          col,
+          rng,
+          pick >= 0.85 ? 0.14 : 0.34
+        );
+      }
+    }
+
+    // Paint each of the 26 word-specific Shakespearean oil compositions (coordinates on 960x620 canvas)
+    function paintWordOilComposition(ctx, item, rng) {
+      const [c1, c2, gold] = item.palette;
+
+      switch (item.letter) {
+        case 'A': { // Assassination: Scottish castle tower, blood moon, dagger poised above crown & chains
+          // Distant castle battlements silhouette in mist
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(95, 530); c.lineTo(95, 290); c.lineTo(135, 290); c.lineTo(135, 315);
+            c.lineTo(175, 315); c.lineTo(175, 275); c.lineTo(225, 275); c.lineTo(225, 530);
+            c.closePath();
+          }, '#231016', '#4A222E', '#12070A', rng, -0.3, 18);
+
+          // Blood Moon
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.arc(640, 175, 66, 0, Math.PI * 2);
+          }, '#9E2232', '#E05A5A', '#590F1A', rng, -0.4, 24);
+
+          // Golden Chains of Consequence
+          ctx.save();
+          for (let i = 0; i < 6; i++) {
+            const lx = 265 + i * 86;
+            const ly = 365 + Math.sin(i * 1.1) * 28;
+            ctx.beginPath();
+            ctx.ellipse(lx, ly, 34, 16, (i % 2 === 0 ? -0.35 : 0.35), 0, Math.PI * 2);
+            ctx.strokeStyle = i % 2 === 0 ? '#E8C258' : '#B58928';
+            ctx.lineWidth = 7;
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          // Royal Gold Crown below
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(395, 485); c.lineTo(380, 412); c.lineTo(430, 444);
+            c.lineTo(480, 398); c.lineTo(530, 444); c.lineTo(580, 412);
+            c.lineTo(565, 485); c.closePath();
+          }, '#D4AF37', '#FFF0A8', '#7D5C12', rng, -0.2, 22);
+
+          // Ornate Scottish Dagger descending toward Crown
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(480, 195); c.lineTo(496, 368); c.lineTo(480, 402); c.lineTo(464, 368);
+            c.closePath();
+          }, '#CFD8DC', '#FFFFFF', '#607D8B', rng, -1.5, 18);
+          // Dagger Hilt
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(422, 192); c.quadraticCurveTo(480, 212, 538, 192);
+            c.lineTo(532, 178); c.quadraticCurveTo(480, 194, 428, 178);
+            c.closePath();
+          }, '#D4AF37', '#FFF2B2', '#6E4E0E', rng, 0, 10);
+          ctx.fillStyle = '#6B1426';
+          ctx.fillRect(471, 134, 18, 46);
+          ctx.beginPath(); ctx.arc(480, 126, 13, 0, Math.PI * 2); ctx.fillStyle = '#E6C35C'; ctx.fill();
+          break;
+        }
+
+        case 'B': { // Bedazzled: Radiant impasto sunbeams bursting over Italian landscape & dazzled traveler
+          // Rolling Tuscan hills in warm ochre & olive oil
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(60, 540); c.quadraticCurveTo(300, 410, 540, 470);
+            c.quadraticCurveTo(740, 510, 900, 430); c.lineTo(900, 540); c.closePath();
+          }, '#3D4A2A', '#6B7D46', '#1F2614', rng, -0.15, 28);
+
+          // Dazzling Golden Sun
+          const sunGlow = ctx.createRadialGradient(480, 195, 18, 480, 195, 270);
+          sunGlow.addColorStop(0, 'rgba(255, 248, 196, 0.95)');
+          sunGlow.addColorStop(0.35, 'rgba(245, 190, 66, 0.45)');
+          sunGlow.addColorStop(1, 'rgba(245, 190, 66, 0)');
+          ctx.fillStyle = sunGlow;
+          ctx.fillRect(60, 50, 840, 490);
+
+          for (let r = 0; r < 14; r++) {
+            const ang = (r / 14) * Math.PI * 2;
+            drawOilBrushStroke(
+              ctx,
+              480 + Math.cos(ang) * 55,
+              195 + Math.sin(ang) * 55,
+              480 + Math.cos(ang) * 235,
+              195 + Math.sin(ang) * 235,
+              12,
+              '#FFE680',
+              rng,
+              0.42
+            );
+          }
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.arc(480, 195, 58, 0, Math.PI * 2);
+          }, '#F7B733', '#FFFBE0', '#D97724', rng, 0.3, 24);
+
+          // Pair of expressive painted eyes dazzled by light
+          [375, 585].forEach(ex => {
+            paintImpastoShape(ctx, c => {
+              c.beginPath();
+              c.moveTo(ex - 72, 375);
+              c.quadraticCurveTo(ex, 322, ex + 72, 375);
+              c.quadraticCurveTo(ex, 428, ex - 72, 375);
+              c.closePath();
+            }, '#FAF2E4', '#FFFFFF', '#C9B393', rng, 0, 12);
+            ctx.beginPath(); ctx.arc(ex, 375, 22, 0, Math.PI * 2); ctx.fillStyle = '#2B547E'; ctx.fill();
+            ctx.beginPath(); ctx.arc(ex, 375, 10, 0, Math.PI * 2); ctx.fillStyle = '#0F1A26'; ctx.fill();
+            ctx.beginPath(); ctx.arc(ex + 7, 367, 5.5, 0, Math.PI * 2); ctx.fillStyle = '#FFFDF7'; ctx.fill();
+          });
+          break;
+        }
+
+        case 'C': { // Cold-blooded: Crimson heart encased in jagged glacial ice under storm lightning
+          // Jagged lightning bolts in stormy sky
+          ctx.strokeStyle = '#D9F7FF';
+          ctx.lineWidth = 4.5;
+          ctx.beginPath(); ctx.moveTo(230, 80); ctx.lineTo(195, 175); ctx.lineTo(245, 175); ctx.lineTo(190, 285); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(730, 80); ctx.lineTo(765, 175); ctx.lineTo(715, 175); ctx.lineTo(770, 285); ctx.stroke();
+
+          // Heart encased in ice
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(480, 468);
+            c.bezierCurveTo(480, 468, 345, 378, 345, 282);
+            c.bezierCurveTo(345, 232, 388, 200, 432, 200);
+            c.bezierCurveTo(458, 200, 472, 216, 480, 234);
+            c.bezierCurveTo(488, 216, 502, 200, 528, 200);
+            c.bezierCurveTo(572, 200, 615, 232, 615, 282);
+            c.bezierCurveTo(615, 378, 480, 468, 480, 468);
+            c.closePath();
+          }, '#235A75', '#9EE4F5', '#102B3B', rng, -0.6, 32);
+
+          // Glacial crystalline icicles piercing & sealing the heart
+          const shards = [
+            [[480, 155], [498, 275], [480, 355], [462, 275]],
+            [[395, 205], [435, 305], [412, 365], [378, 285]],
+            [[565, 205], [582, 285], [548, 365], [525, 305]],
+            [[480, 330], [508, 445], [480, 515], [452, 445]]
+          ];
+          shards.forEach(pts => {
+            paintImpastoShape(ctx, c => {
+              c.beginPath();
+              c.moveTo(pts[0][0], pts[0][1]);
+              pts.slice(1).forEach(p => c.lineTo(p[0], p[1]));
+              c.closePath();
+            }, '#B8F0FF', '#FFFFFF', '#4A9BB8', rng, -1.2, 10);
+          });
+          break;
+        }
+
+        case 'D': { // Dauntless: Armored knight's heraldic shield & plumed helm standing firm against crashing waves & arrows
+          // Crashing sea waves
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(60, 455); QWave(c, 60, 455, 900, 455, 28);
+            c.lineTo(900, 550); c.lineTo(60, 550); c.closePath();
+          }, '#1B4965', '#62B6CB', '#0D2636', rng, 0.1, 30);
+
+          // Flying enemy arrows deflected
+          for (let a = 0; a < 5; a++) {
+            const ax = 170 + a * 45;
+            const ay = 130 + a * 32;
+            drawOilBrushStroke(ctx, ax, ay, ax + 115, ay + 65, 3.5, '#E0D6C3', rng, 0.85);
+          }
+
+          // Plumed Knight Helm
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(430, 215); c.quadraticCurveTo(480, 125, 530, 215); c.closePath();
+          }, '#7D8B91', '#E8EEF2', '#3A4347', rng, -0.4, 14);
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(480, 148); c.quadraticCurveTo(545, 95, 595, 145);
+            c.quadraticCurveTo(540, 155, 495, 165); c.closePath();
+          }, '#E6B84C', '#FFF3B8', '#8C6214', rng, -0.2, 12);
+
+          // Heraldic Crimson & Gold Shield
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(375, 225); c.lineTo(585, 225); c.lineTo(585, 345);
+            c.quadraticCurveTo(585, 435, 480, 485);
+            c.quadraticCurveTo(375, 435, 375, 345);
+            c.closePath();
+          }, '#7D1729', '#C93850', '#3D0812', rng, -0.5, 34);
+
+          // Golden Lion Emblem on Shield
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.arc(480, 338, 44, 0, Math.PI * 2);
+          }, '#D4AF37', '#FFF0A8', '#7A5912', rng, 0.2, 16);
+          break;
+        }
+
+        case 'E': { // Eventful: Globe Theatre stage curtains, Wheel of Seven Ages of Man & hourglass
+          // Heavy Crimson Theatre Curtains
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(60, 50); c.quadraticCurveTo(235, 260, 145, 550); c.lineTo(60, 550); c.closePath();
+          }, '#6E1426', '#B5334C', '#33060F', rng, 1.3, 24);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(900, 50); c.quadraticCurveTo(725, 260, 815, 550); c.lineTo(900, 550); c.closePath();
+          }, '#6E1426', '#B5334C', '#33060F', rng, -1.3, 24);
+
+          // Wheel of Seven Ages
+          ctx.save();
+          ctx.beginPath(); ctx.arc(480, 310, 152, 0, Math.PI * 2);
+          ctx.strokeStyle = '#D4AF37'; ctx.lineWidth = 12; ctx.stroke();
+          for (let s = 0; s < 7; s++) {
+            const ang = (s / 7) * Math.PI * 2 - Math.PI / 2;
+            const mx = 480 + Math.cos(ang) * 152;
+            const my = 310 + Math.sin(ang) * 152;
+            ctx.beginPath(); ctx.moveTo(480, 310); ctx.lineTo(mx, my);
+            ctx.strokeStyle = 'rgba(212, 175, 55, 0.65)'; ctx.lineWidth = 3; ctx.stroke();
+            ctx.beginPath(); ctx.arc(mx, my, 20, 0, Math.PI * 2);
+            ctx.fillStyle = ['#8C1D38', '#23577A', '#2E6B43', '#B5651D', '#633D8A', '#8C6D16', '#3A4A54'][s];
+            ctx.fill(); ctx.strokeStyle = '#FFF0B8'; ctx.lineWidth = 2.5; ctx.stroke();
+          }
+          ctx.restore();
+
+          // Central Hourglass of Time
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(436, 248); c.lineTo(524, 248); c.lineTo(480, 310);
+            c.lineTo(524, 372); c.lineTo(436, 372); c.lineTo(480, 310); c.closePath();
+          }, '#F5ECD8', '#FFFFFF', '#B8A27E', rng, 0, 16);
+          break;
+        }
+
+        case 'F': { // Fanged: Two coiled venomous green adders baring sharp white fangs beside a royal chalice
+          // Golden Goblet
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(430, 265); c.lineTo(530, 265); c.lineTo(510, 355);
+            c.quadraticCurveTo(480, 380, 450, 355); c.closePath();
+          }, '#D4AF37', '#FFF0A8', '#7A5912', rng, 0.2, 18);
+          ctx.fillStyle = '#B58928'; ctx.fillRect(472, 365, 16, 75);
+          ctx.beginPath(); ctx.ellipse(480, 444, 52, 14, 0, 0, Math.PI * 2); ctx.fillStyle = '#D4AF37'; ctx.fill();
+
+          // Two Coiled Adders
+          drawOilBrushStroke(ctx, 325, 470, 435, 225, 24, '#4C8C40', rng, 0.95);
+          drawOilBrushStroke(ctx, 635, 470, 525, 225, 24, '#4C8C40', rng, 0.95);
+          // Snake Heads
+          [435, 525].forEach((hx, idx) => {
+            paintImpastoShape(ctx, c => {
+              c.beginPath(); c.ellipse(hx, 222, 26, 18, idx === 0 ? 0.35 : -0.35, 0, Math.PI * 2);
+            }, '#5BA34D', '#A7E876', '#254D1E', rng, 0, 10);
+            // White Fangs
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath(); ctx.moveTo(hx - 8, 232); ctx.lineTo(hx - 4, 256); ctx.lineTo(hx, 232); ctx.fill();
+            ctx.beginPath(); ctx.moveTo(hx + 2, 232); ctx.lineTo(hx + 6, 256); ctx.lineTo(hx + 10, 232); ctx.fill();
+          });
+          break;
+        }
+
+        case 'G': { // Green-eyed: Giant glowing emerald monster eye peering from crimson curtains at Desdemona's handkerchief
+          // Velvet Drapes
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(60, 50); c.quadraticCurveTo(250, 260, 160, 550); c.lineTo(60, 550); c.closePath();
+          }, '#611022', '#A82844', '#2B040D', rng, 1.4, 24);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(900, 50); c.quadraticCurveTo(710, 260, 800, 550); c.lineTo(900, 550); c.closePath();
+          }, '#611022', '#A82844', '#2B040D', rng, -1.4, 24);
+
+          // Giant Green-Eyed Monster Gaze
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(295, 275); QWave(c, 295, 275, 665, 275, -95);
+            QWave(c, 665, 275, 295, 275, -95); c.closePath();
+          }, '#1E7A56', '#72E89B', '#0B3624', rng, 0.1, 28);
+          ctx.beginPath(); ctx.arc(480, 275, 72, 0, Math.PI * 2); ctx.fillStyle = '#38B000'; ctx.fill();
+          ctx.beginPath(); ctx.ellipse(480, 275, 18, 60, 0, 0, Math.PI * 2); ctx.fillStyle = '#090A09'; ctx.fill();
+          ctx.beginPath(); ctx.arc(462, 250, 12, 0, Math.PI * 2); ctx.fillStyle = '#FFFFFF'; ctx.fill();
+
+          // Embroidered White Handkerchief below
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(410, 445); c.quadraticCurveTo(480, 420, 555, 452);
+            c.lineTo(535, 515); c.quadraticCurveTo(475, 492, 395, 512); c.closePath();
+          }, '#FAF6ED', '#FFFFFF', '#C7B99E', rng, -0.2, 14);
+          break;
+        }
+
+        case 'H': { // Heartache: Crimson heart pierced by silver arrows & thorns above a blue apothecary vial
+          // Cobalt Sleep Vial
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.roundRect(448, 418, 64, 82, 14);
+          }, '#276696', '#7EC4F5', '#12334D', rng, 0, 14);
+          ctx.fillStyle = '#D4AF37'; ctx.fillRect(466, 398, 28, 20);
+
+          // Pierced Crimson Heart
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(480, 385);
+            c.bezierCurveTo(480, 385, 350, 298, 350, 210);
+            c.bezierCurveTo(350, 162, 390, 130, 434, 130);
+            c.bezierCurveTo(458, 130, 472, 145, 480, 162);
+            c.bezierCurveTo(488, 145, 502, 130, 526, 130);
+            c.bezierCurveTo(570, 130, 610, 162, 610, 210);
+            c.bezierCurveTo(610, 298, 480, 385, 480, 385);
+            c.closePath();
+          }, '#9E1B24', '#EB5E68', '#4A080D', rng, -0.5, 34);
+
+          // Silver Arrows of Anguish
+          drawOilBrushStroke(ctx, 310, 330, 655, 165, 6, '#F2EFE9', rng, 0.95);
+          drawOilBrushStroke(ctx, 325, 175, 640, 320, 5, '#E0DDD5', rng, 0.9);
+          break;
+        }
+
+        case 'I': { // Inaudible: Winged hourglass of Time floating silently over muted golden soundwaves & decree
+          // Muted concentric ripples
+          ctx.save();
+          ctx.setLineDash([10, 16]);
+          [115, 165, 215].forEach(r => {
+            ctx.beginPath(); ctx.arc(480, 300, r, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(180, 212, 245, 0.45)'; ctx.lineWidth = 3; ctx.stroke();
+          });
+          ctx.restore();
+
+          // Feathered Wings
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(426, 268); c.quadraticCurveTo(315, 195, 275, 265);
+            c.quadraticCurveTo(350, 305, 426, 308); c.closePath();
+          }, '#F2ECE1', '#FFFFFF', '#B5A895', rng, -0.3, 18);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(534, 268); c.quadraticCurveTo(645, 195, 685, 265);
+            c.quadraticCurveTo(610, 305, 534, 308); c.closePath();
+          }, '#F2ECE1', '#FFFFFF', '#B5A895', rng, 0.3, 18);
+
+          // Hourglass
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(432, 224); c.lineTo(528, 224); c.lineTo(480, 300);
+            c.lineTo(528, 376); c.lineTo(432, 376); c.lineTo(480, 300); c.closePath();
+          }, '#243E63', '#8AB4E8', '#101D30', rng, 0, 18);
+
+          // Royal Decree Scroll
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.roundRect(370, 422, 220, 42, 10);
+          }, '#F5ECD8', '#FFFFFF', '#BFA882', rng, 0, 12);
+          break;
+        }
+
+        case 'J': { // Jaded: Scarlet Tudor cardinal hat looming over a weary, drooping noble steed & scattered coins
+          // Cardinal Galero Hat
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.ellipse(480, 220, 155, 34, 0, 0, Math.PI * 2);
+          }, '#9E1B32', '#E04862', '#4D0915', rng, 0, 20);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.arc(480, 220, 62, Math.PI, 0);
+          }, '#B5223B', '#EB5E76', '#5E0C1A', rng, 0, 14);
+
+          // Drooping Weary Steed Silhouette
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(395, 480); c.quadraticCurveTo(395, 340, 475, 315);
+            c.quadraticCurveTo(545, 315, 555, 375); c.quadraticCurveTo(545, 415, 505, 395);
+            c.lineTo(495, 480); c.closePath();
+          }, '#6E533B', '#A88463', '#362618', rng, 0.6, 26);
+
+          // Scattered Gold Coins
+          [[360, 478], [398, 492], [565, 482], [602, 472]].forEach(([cx, cy]) => {
+            ctx.beginPath(); ctx.arc(cx, cy, 13, 0, Math.PI * 2); ctx.fillStyle = '#E6C258'; ctx.fill();
+          });
+          break;
+        }
+
+        case 'K': { // King-becoming: Tudor crown on velvet cushion surrounded by Justice scales, Mirror, Chalice & Pillar
+          // Velvet Cushion
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.roundRect(350, 355, 260, 68, 22);
+          }, '#7A1630', '#C43559', '#380613', rng, 0, 22);
+
+          // Jewelled Tudor Crown
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(372, 355); c.lineTo(355, 245); c.lineTo(420, 295);
+            c.lineTo(480, 225); c.lineTo(540, 295); c.lineTo(605, 245);
+            c.lineTo(588, 355); c.closePath();
+          }, '#D4AF37', '#FFF2B2', '#7D5C12', rng, -0.2, 26);
+
+          // Four Virtues Medallions (Justice, Verity, Temperance, Stableness)
+          [[275, 195], [685, 195], [275, 445], [685, 445]].forEach(([vx, vy], idx) => {
+            ctx.beginPath(); ctx.arc(vx, vy, 34, 0, Math.PI * 2);
+            ctx.fillStyle = '#1E3557'; ctx.fill();
+            ctx.strokeStyle = '#E6C258'; ctx.lineWidth = 4; ctx.stroke();
+            ctx.fillStyle = '#FFF2B2';
+            if (idx === 0) ctx.fillRect(vx - 18, vy - 2, 36, 4);
+            if (idx === 1) { ctx.beginPath(); ctx.arc(vx, vy, 13, 0, Math.PI * 2); ctx.fill(); }
+            if (idx === 2) { ctx.beginPath(); ctx.moveTo(vx - 12, vy - 10); ctx.lineTo(vx + 12, vy - 10); ctx.lineTo(vx, vy + 12); ctx.fill(); }
+            if (idx === 3) ctx.fillRect(vx - 8, vy - 15, 16, 30);
+          });
+          break;
+        }
+
+        case 'L': { // Lonely: Solitary winged dragon in a misty marsh under a single lone star
+          // Lone Star
+          ctx.beginPath(); ctx.arc(480, 128, 9, 0, Math.PI * 2); ctx.fillStyle = '#FFF5C0'; ctx.fill();
+
+          // Misty Marshland
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(60, 445); QWave(c, 60, 445, 900, 445, 22);
+            c.lineTo(900, 550); c.lineTo(60, 550); c.closePath();
+          }, '#1E4536', '#4E8A71', '#0E241B', rng, 0.05, 30);
+
+          // Solitary Winged Dragon
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(430, 330); c.quadraticCurveTo(320, 235, 285, 315);
+            c.quadraticCurveTo(365, 355, 435, 365); c.closePath();
+          }, '#2D664F', '#6BB595', '#153628', rng, -0.4, 18);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(530, 330); c.quadraticCurveTo(640, 235, 675, 315);
+            c.quadraticCurveTo(595, 355, 525, 365); c.closePath();
+          }, '#2D664F', '#6BB595', '#153628', rng, 0.4, 18);
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(452, 445); c.quadraticCurveTo(452, 310, 482, 255);
+            c.quadraticCurveTo(512, 310, 512, 445); c.closePath();
+          }, '#3E7D63', '#8CD4B5', '#1C4031', rng, 0.2, 22);
+          break;
+        }
+
+        case 'M': { // Moonbeam: Luminous crescent moon casting silvery beams through forest as painted butterflies dance
+          // Crescent Moon
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.arc(430, 185, 78, 0.4, Math.PI * 1.75);
+            c.quadraticCurveTo(420, 195, 430, 185);
+            c.closePath();
+          }, '#FFF7D6', '#FFFFFF', '#D4C38A', rng, 0.2, 20);
+
+          // Silvery Moonbeams
+          ctx.save();
+          ctx.fillStyle = 'rgba(235, 245, 255, 0.18)';
+          ctx.beginPath(); ctx.moveTo(430, 210); ctx.lineTo(270, 540); ctx.lineTo(410, 540); ctx.closePath(); ctx.fill();
+          ctx.beginPath(); ctx.moveTo(465, 225); ctx.lineTo(460, 540); ctx.lineTo(610, 540); ctx.closePath(); ctx.fill();
+          ctx.restore();
+
+          // Painted Butterflies
+          [[585, 315, '#E89B54'], [345, 375, '#5CB8E6']].forEach(([bx, by, col]) => {
+            paintImpastoShape(ctx, c => {
+              c.beginPath();
+              c.ellipse(bx - 22, by - 10, 24, 15, -0.4, 0, Math.PI * 2);
+              c.ellipse(bx + 22, by - 10, 24, 15, 0.4, 0, Math.PI * 2);
+              c.ellipse(bx - 18, by + 14, 18, 12, 0.4, 0, Math.PI * 2);
+              c.ellipse(bx + 18, by + 14, 18, 12, -0.4, 0, Math.PI * 2);
+            }, col, '#FFFDF7', '#4A3525', rng, 0.3, 14);
+          });
+          break;
+        }
+
+        case 'N': { // New-fangled: Winter snowflakes & May blossoms framing an extravagant clockwork rose
+          // Snowflakes on left, Spring petals on right
+          ctx.strokeStyle = '#E6F7FA'; ctx.lineWidth = 3;
+          [[270, 195], [315, 285]].forEach(([sx, sy]) => {
+            ctx.beginPath(); ctx.moveTo(sx - 22, sy); ctx.lineTo(sx + 22, sy);
+            ctx.moveTo(sx, sy - 22); ctx.lineTo(sx, sy + 22); ctx.stroke();
+          });
+          [[685, 195], [645, 285]].forEach(([px, py]) => {
+            ctx.beginPath(); ctx.arc(px, py, 14, 0, Math.PI * 2); ctx.fillStyle = '#F4A261'; ctx.fill();
+          });
+
+          // Clockwork Gear Halo & Crimson Rose
+          ctx.beginPath(); ctx.arc(480, 310, 96, 0, Math.PI * 2);
+          ctx.strokeStyle = '#E6C258'; ctx.lineWidth = 8; ctx.setLineDash([16, 10]); ctx.stroke(); ctx.setLineDash([]);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.arc(480, 310, 66, 0, Math.PI * 2);
+          }, '#A31D32', '#F0657A', '#4D0914', rng, 0.4, 24);
+          ctx.fillStyle = '#4D9E6D'; ctx.fillRect(474, 376, 12, 120);
+          break;
+        }
+
+        case 'O': { // Outbreak: Shattered Renaissance bronze lantern erupting with fiery vermilion flames
+          // Lantern base
+          ctx.strokeStyle = '#D4AF37'; ctx.lineWidth = 6;
+          ctx.strokeRect(425, 385, 110, 95);
+          drawOilBrushStroke(ctx, 425, 385, 375, 340, 6, '#D4AF37', rng, 0.9);
+          drawOilBrushStroke(ctx, 535, 385, 585, 340, 6, '#D4AF37', rng, 0.9);
+
+          // Erupting Flames
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(480, 125);
+            c.bezierCurveTo(545, 215, 595, 275, 560, 365);
+            c.quadraticCurveTo(480, 415, 400, 365);
+            c.bezierCurveTo(365, 275, 415, 215, 480, 125);
+            c.closePath();
+          }, '#E86F1C', '#FFD166', '#9E1B16', rng, -1.4, 34);
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(480, 195);
+            c.bezierCurveTo(515, 250, 535, 295, 515, 355);
+            c.quadraticCurveTo(480, 385, 445, 355);
+            c.bezierCurveTo(425, 295, 445, 250, 480, 195);
+            c.closePath();
+          }, '#FFF0A6', '#FFFFFF', '#F79F24', rng, -1.5, 18);
+          break;
+        }
+
+        case 'P': { // Premeditated: Chessboard, wax-sealed parchment pamphlets & plotting quill pen
+          // Chessboard tabletop
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.roundRect(330, 350, 300, 125, 10);
+          }, '#EFE4CE', '#FFFFFF', '#B5A182', rng, 0, 22);
+          ctx.strokeStyle = '#362218'; ctx.lineWidth = 3;
+          ctx.strokeRect(330, 350, 300, 125);
+          ctx.beginPath(); ctx.moveTo(430, 350); ctx.lineTo(430, 475);
+          ctx.moveTo(530, 350); ctx.lineTo(530, 475);
+          ctx.moveTo(330, 412); ctx.lineTo(630, 412); ctx.stroke();
+
+          // Crimson Wax Seal
+          ctx.beginPath(); ctx.arc(480, 412, 24, 0, Math.PI * 2); ctx.fillStyle = '#9E1B32'; ctx.fill();
+          ctx.strokeStyle = '#E6C258'; ctx.lineWidth = 3; ctx.stroke();
+
+          // White Quill Feather & Compass
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(488, 385); QWave(c, 488, 385, 615, 155, -45);
+            QWave(c, 615, 155, 476, 355, 35); c.closePath();
+          }, '#FAF4E8', '#FFFFFF', '#C7B89E', rng, -0.9, 16);
+          break;
+        }
+
+        case 'Q': { // Quarrelsome: Two opposing theatrical masks & clashing rapiers sparking in mid-air
+          // Clashing Rapiers
+          drawOilBrushStroke(ctx, 325, 455, 635, 175, 7, '#F2EFE9', rng, 0.95);
+          drawOilBrushStroke(ctx, 635, 455, 325, 175, 7, '#F2EFE9', rng, 0.95);
+          // Golden Spark Burst
+          ctx.beginPath(); ctx.arc(480, 315, 24, 0, Math.PI * 2); ctx.fillStyle = '#FFD166'; ctx.fill();
+
+          // Two Arguing Masks
+          [[335, 240], [625, 240]].forEach(([mx, my]) => {
+            paintImpastoShape(ctx, c => {
+              c.beginPath();
+              c.moveTo(mx - 36, my - 35); c.quadraticCurveTo(mx, my - 65, mx + 36, my - 35);
+              c.quadraticCurveTo(mx + 38, my + 35, mx, my + 55);
+              c.quadraticCurveTo(mx - 38, my + 35, mx - 36, my - 35);
+              c.closePath();
+            }, '#F5ECD8', '#FFFFFF', '#BFA882', rng, 0, 14);
+          });
+          break;
+        }
+
+        case 'R': { // Radiance: Baroque sunburst altarpiece pouring sacred golden light over stone altar
+          const rad = ctx.createRadialGradient(480, 275, 25, 480, 275, 290);
+          rad.addColorStop(0, 'rgba(255, 246, 196, 0.95)');
+          rad.addColorStop(0.45, 'rgba(242, 175, 52, 0.42)');
+          rad.addColorStop(1, 'rgba(242, 175, 52, 0)');
+          ctx.fillStyle = rad;
+          ctx.fillRect(60, 50, 840, 490);
+
+          for (let i = 0; i < 16; i++) {
+            const ang = (i / 16) * Math.PI * 2;
+            drawOilBrushStroke(
+              ctx,
+              480 + Math.cos(ang) * 70,
+              275 + Math.sin(ang) * 70,
+              480 + Math.cos(ang) * 245,
+              275 + Math.sin(ang) * 245,
+              10,
+              '#FFE28A',
+              rng,
+              0.5
+            );
+          }
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.arc(480, 275, 82, 0, Math.PI * 2);
+          }, '#EB9223', '#FFFDF0', '#B86214', rng, 0.2, 28);
+          break;
+        }
+
+        case 'S': { // Swagger: Flamboyant plumed cavalier hat, green cloak & strutting leather boots
+          // Feathered Cavalier Hat
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(375, 205); QWave(c, 375, 205, 585, 205, -55);
+            c.lineTo(555, 238); QWave(c, 555, 238, 405, 238, -24); c.closePath();
+          }, '#9E1B32', '#E04862', '#4D0915', rng, 0, 18);
+          drawOilBrushStroke(ctx, 555, 195, 645, 145, 10, '#F7CE65', rng, 0.95);
+
+          // Swaggering Cloak & Boots
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(395, 255); c.lineTo(565, 255); c.lineTo(605, 385); c.lineTo(355, 385); c.closePath();
+          }, '#2E6648', '#68B58B', '#143322', rng, 0.3, 24);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(405, 385); c.lineTo(435, 385); c.lineTo(435, 485); c.lineTo(365, 492); c.lineTo(365, 468); c.lineTo(405, 460); c.closePath();
+          }, '#784B24', '#BA814E', '#3D240E', rng, 0, 12);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(525, 385); c.lineTo(555, 385); c.lineTo(585, 460); c.lineTo(625, 468); c.lineTo(625, 492); c.lineTo(545, 485); c.closePath();
+          }, '#784B24', '#BA814E', '#3D240E', rng, 0, 12);
+          break;
+        }
+
+        case 'T': { // Tranquil: Mirror-still Venetian lagoon under stars with a white peace dove & olive branch
+          // Calm Venetian Water
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.rect(60, 365, 840, 185);
+          }, '#1C4B78', '#5698CC', '#0D2640', rng, 0, 34);
+          drawOilBrushStroke(ctx, 310, 415, 650, 415, 5, '#D8F3FF', rng, 0.75);
+          drawOilBrushStroke(ctx, 365, 452, 595, 452, 4, '#D8F3FF', rng, 0.55);
+
+          // White Dove with Olive Branch
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(395, 275); QWave(c, 395, 275, 505, 250, -68);
+            QWave(c, 505, 250, 585, 258, -38);
+            QWave(c, 585, 258, 495, 305, 28);
+            QWave(c, 495, 305, 395, 275, 32); c.closePath();
+          }, '#FAF7F0', '#FFFFFF', '#C7BFA8', rng, -0.2, 20);
+          drawOilBrushStroke(ctx, 568, 266, 622, 298, 5, '#74C69D', rng, 0.95);
+          break;
+        }
+
+        case 'U': { // Unreal: Translucent ghostly apparition rising above an empty banquet throne
+          // Empty Throne Chair
+          ctx.strokeStyle = '#D4AF37'; ctx.lineWidth = 7;
+          ctx.strokeRect(405, 265, 150, 215);
+
+          // Translucent Glazed Apparition
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(420, 395); c.bezierCurveTo(420, 275, 442, 212, 480, 212);
+            c.bezierCurveTo(518, 212, 540, 275, 540, 395);
+            c.quadraticCurveTo(510, 368, 480, 395);
+            c.quadraticCurveTo(450, 368, 420, 395); c.closePath();
+          }, 'rgba(218, 226, 238, 0.45)', 'rgba(255, 255, 255, 0.72)', 'rgba(130, 145, 175, 0.35)', rng, -1.3, 22);
+          break;
+        }
+
+        case 'V': { // Vulnerable: Steel knight's helm split by a glowing crimson chink beneath a descending blade
+          // Steel Helm
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(385, 285); c.bezierCurveTo(385, 195, 575, 195, 575, 285);
+            c.lineTo(562, 435); c.lineTo(480, 482); c.lineTo(398, 435); c.closePath();
+          }, '#525D61', '#B8C4C9', '#252B2E', rng, -0.4, 28);
+          ctx.fillStyle = '#141210'; ctx.fillRect(408, 305, 144, 14);
+
+          // Glowing Vulnerable Chink
+          drawOilBrushStroke(ctx, 488, 326, 466, 365, 8, '#FF595E', rng, 0.98);
+          drawOilBrushStroke(ctx, 466, 365, 496, 395, 8, '#FF595E', rng, 0.98);
+          drawOilBrushStroke(ctx, 496, 395, 470, 442, 8, '#FF595E', rng, 0.98);
+
+          // Descending Sword
+          drawOilBrushStroke(ctx, 518, 115, 482, 305, 10, '#F5F3EE', rng, 0.95);
+          break;
+        }
+
+        case 'W': { // Watchdog: Alert hound barking beside a glowing lantern on moonlit castle battlements
+          // Castle Battlements
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(60, 425); c.lineTo(310, 425); c.lineTo(310, 385); c.lineTo(365, 385);
+            c.lineTo(365, 425); c.lineTo(420, 425); c.lineTo(420, 385); c.lineTo(475, 385);
+            c.lineTo(475, 425); c.lineTo(900, 425); c.lineTo(900, 550); c.lineTo(60, 550); c.closePath();
+          }, '#282B3B', '#545B78', '#14161F', rng, 0, 26);
+
+          // Glowing Watchman Lantern
+          ctx.fillStyle = '#F7CE65'; ctx.fillRect(326, 282, 42, 62);
+          ctx.strokeStyle = '#D4AF37'; ctx.lineWidth = 4; ctx.strokeRect(326, 282, 42, 62);
+
+          // Alert Watchdog
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(445, 425); c.lineTo(458, 315); c.lineTo(445, 265); c.lineTo(472, 292);
+            c.lineTo(498, 265); c.lineTo(504, 310); c.lineTo(552, 320); c.lineTo(546, 345);
+            c.lineTo(510, 350); c.lineTo(518, 425); c.closePath();
+          }, '#C99663', '#F5D6B3', '#6E4A26', rng, -0.5, 20);
+          break;
+        }
+
+        case 'X': { // Xanthippe: Classical Greek Ionic column, tempest lightning & scolding theatrical mask
+          // Greek Ionic Column
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.rect(330, 255, 84, 225);
+          }, '#E3DFD5', '#FFFFFF', '#9E9788', rng, -1.5, 22);
+          ctx.beginPath(); ctx.arc(330, 255, 20, 0, Math.PI * 2); ctx.fillStyle = '#F7F4EC'; ctx.fill();
+          ctx.beginPath(); ctx.arc(414, 255, 20, 0, Math.PI * 2); ctx.fillStyle = '#F7F4EC'; ctx.fill();
+
+          // Tempest Lightning & Shrewish Mask
+          ctx.strokeStyle = '#F7CE65'; ctx.lineWidth = 6;
+          ctx.beginPath(); ctx.moveTo(545, 145); ctx.lineTo(505, 235); ctx.lineTo(555, 235); ctx.lineTo(500, 330); ctx.stroke();
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(555, 315); QWave(c, 555, 315, 655, 315, -55);
+            QWave(c, 655, 315, 605, 435, 35); QWave(c, 605, 435, 555, 315, 35); c.closePath();
+          }, '#F5ECD8', '#FFFFFF', '#BFA882', rng, 0, 14);
+          break;
+        }
+
+        case 'Y': { // Yelping: Pack of baying hounds pursuing a timid golden stag across misty hunting grounds
+          // Timid Stag on right
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(525, 465); c.lineTo(535, 365); c.lineTo(582, 332);
+            c.lineTo(608, 346); c.lineTo(578, 376); c.lineTo(588, 465); c.closePath();
+          }, '#DFB658', '#FFF3C4', '#8A661E', rng, -0.4, 18);
+          drawOilBrushStroke(ctx, 578, 332, 562, 275, 5, '#FFF2C2', rng, 0.9);
+          drawOilBrushStroke(ctx, 588, 332, 608, 275, 5, '#FFF2C2', rng, 0.9);
+
+          // Yelping Hounds on left
+          paintImpastoShape(ctx, c => {
+            c.beginPath();
+            c.moveTo(335, 465); c.lineTo(356, 368); c.lineTo(412, 348);
+            c.lineTo(408, 378); c.lineTo(382, 386); c.lineTo(392, 465); c.closePath();
+          }, '#962828', '#E05A5A', '#4A0D0D', rng, 0.3, 18);
+          break;
+        }
+
+        case 'Z': { // Zany: Renaissance court jester in harlequin cap with bells juggling colorful baubles
+          // Jester's Three-Pointed Harlequin Cap
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(405, 325); QWave(c, 405, 325, 305, 265, -55);
+            QWave(c, 305, 265, 405, 350, 25); c.closePath();
+          }, '#9E1B32', '#E04862', '#4D0915', rng, -0.4, 14);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(480, 315); QWave(c, 480, 315, 442, 195, -45);
+            QWave(c, 442, 195, 495, 315, 25); c.closePath();
+          }, '#2B8A7E', '#68D4C6', '#12423C', rng, -1.2, 14);
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(555, 325); QWave(c, 555, 325, 655, 265, -55);
+            QWave(c, 655, 265, 555, 350, 25); c.closePath();
+          }, '#D96B43', '#F7A888', '#6E2B14', rng, 0.4, 14);
+
+          // Harlequin Diamond Collar
+          paintImpastoShape(ctx, c => {
+            c.beginPath(); c.moveTo(480, 330); c.lineTo(575, 395); c.lineTo(480, 460); c.lineTo(385, 395); c.closePath();
+          }, '#E89B54', '#FFD29E', '#7D4718', rng, 0, 18);
+
+          // Juggling Baubles
+          [[368, 175, '#F7CE65'], [592, 175, '#5CB8E6'], [480, 138, '#E05A5A']].forEach(([bx, by, col]) => {
+            ctx.beginPath(); ctx.arc(bx, by, 18, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill();
+            ctx.beginPath(); ctx.arc(bx - 5, by - 5, 5, 0, Math.PI * 2); ctx.fillStyle = '#FFFFFF'; ctx.fill();
+          });
+          break;
+        }
+      }
+    }
+
+    function QWave(ctx, x1, y1, x2, y2, curveOffset) {
+      const mx = (x1 + x2) * 0.5;
+      const my = (y1 + y2) * 0.5 + curveOffset;
+      ctx.quadraticCurveTo(mx, my, x2, y2);
+    }
+
+    // Master Oil Painting Canvas Renderer (960x620 Retina Resolution)
+    function renderOilPaintingOnCanvas(canvasEl, item) {
+      if (!canvasEl) return;
+      const ctx = canvasEl.getContext('2d');
+      const W = canvasEl.width;
+      const H = canvasEl.height;
+      const actNum = SHAKESPEARE_DATA.findIndex(d => d.letter === item.letter) + 1;
+      const rng = createSeededRandom(actNum * 9973);
+      const [, , gold] = item.palette;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // 1. Baroque Gilded Carved Outer Picture Frame
+      const frameGrad = ctx.createLinearGradient(0, 0, W, H);
+      frameGrad.addColorStop(0, '#6E4A14');
+      frameGrad.addColorStop(0.25, '#D4AF37');
+      frameGrad.addColorStop(0.5, '#7A5216');
+      frameGrad.addColorStop(0.75, '#E6C667');
+      frameGrad.addColorStop(1, '#4A300A');
+      ctx.fillStyle = frameGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Carved frame moldings
+      ctx.strokeStyle = '#362006';
+      ctx.lineWidth = 6;
+      ctx.strokeRect(16, 16, W - 32, H - 32);
+      ctx.strokeStyle = 'rgba(245, 220, 132, 0.85)';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(28, 26, W - 56, H - 52);
+
+      // Crimson velvet liner
+      ctx.fillStyle = '#2A0813';
+      ctx.fillRect(40, 36, W - 80, H - 72);
+      ctx.strokeStyle = '#8C6418';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(40, 36, W - 80, H - 72);
+
+      // 2. Inner Oil Canvas Region (x=56, y=48, w=848, h=504)
+      const cx = 56, cy = 48, cw = W - 112, ch = H - 96;
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(cx, cy, cw, ch);
+      ctx.clip();
+
+      // Rich oil ground with directional bristle brushwork
+      paintOilGround(ctx, cx, cy, cw, ch, item.palette, rng);
+
+      // Word-specific narrative oil composition
+      paintWordOilComposition(ctx, item, rng);
+
+      // Rembrandt Chiaroscuro diagonal stage spotlight & dark glazed edges
+      const chiaro = ctx.createRadialGradient(W * 0.46, H * 0.44, 40, W * 0.5, H * 0.5, W * 0.54);
+      chiaro.addColorStop(0, 'rgba(255, 242, 198, 0.24)');
+      chiaro.addColorStop(0.52, 'rgba(212, 175, 55, 0.06)');
+      chiaro.addColorStop(1, 'rgba(10, 4, 3, 0.72)');
+      ctx.fillStyle = chiaro;
+      ctx.fillRect(cx, cy, cw, ch);
+
+      // Subtle tactile woven linen canvas grain & oil varnish sheen
+      ctx.strokeStyle = 'rgba(255, 248, 231, 0.055)';
+      ctx.lineWidth = 1;
+      for (let gx = cx; gx < cx + cw; gx += 8) {
+        ctx.beginPath(); ctx.moveTo(gx, cy); ctx.lineTo(gx, cy + ch); ctx.stroke();
+      }
+      for (let gy = cy; gy < cy + ch; gy += 8) {
+        ctx.beginPath(); ctx.moveTo(cx, gy); ctx.lineTo(cx + cw, gy); ctx.stroke();
+      }
+      ctx.restore();
+
+      // Inner gold fillet lip
+      ctx.strokeStyle = '#E6C258';
+      ctx.lineWidth = 5;
+      ctx.strokeRect(cx, cy, cw, ch);
+
+      // 3. Corner Acanthus Rosettes on Frame
+      [[32, 32], [W - 32, 32], [32, H - 32], [W - 32, H - 32]].forEach(([rx, ry]) => {
+        ctx.beginPath(); ctx.arc(rx, ry, 15, 0, Math.PI * 2);
+        ctx.fillStyle = '#D4AF37'; ctx.fill();
+        ctx.strokeStyle = '#3D2408'; ctx.lineWidth = 2.5; ctx.stroke();
+      });
+
+      // 4. Top Gilded Oval Cartouche (Spoiler-Free: Shows Only Letter)
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(W * 0.5, 52, 46, 34, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#2A0813';
+      ctx.fill();
+      ctx.strokeStyle = '#E6C258';
+      ctx.lineWidth = 4.5;
+      ctx.stroke();
+
+      ctx.fillStyle = '#F3E5AB';
+      ctx.font = '900 38px "Cinzel Decorative", Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(item.letter, W * 0.5, 55);
+      ctx.restore();
+
+      // 5. Bottom Museum Brass Nameplate (Shows Act & Genre Only, Zero English Word Spoil)
+      ctx.save();
+      const pw = 380, ph = 44, px = (W - pw) * 0.5, py = H - 64;
+      ctx.fillStyle = '#D4AF37';
+      ctx.beginPath(); ctx.roundRect(px, py, pw, ph, 8); ctx.fill();
+      ctx.strokeStyle = '#3D2408'; ctx.lineWidth = 3; ctx.stroke();
+
+      ctx.fillStyle = '#1F0B08';
+      ctx.beginPath(); ctx.roundRect(px + 5, py + 5, pw - 10, ph - 10, 5); ctx.fill();
+
+      ctx.fillStyle = '#F3E5AB';
+      ctx.font = '700 20px "Noto Serif TC", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`第 ${actNum} 幕 · ${item.genre}`, W * 0.5, py + ph * 0.5 + 1);
+      ctx.restore();
+    }
+
+    /**
+     * 3. APPLICATION STATE & PERSISTENCE
+     */
+    const STORAGE_KEY = 'shakespeare_az_lexicon_v1';
+
+    let appState = {
+      currentIndex: 0,        // 0 = A, 25 = Z
+      currentStage: 1,        // 1, 2, or 3
+      highestUnlockedStage: 1,// Tracks sequential unlock for current letter in strict mode
+      learningMode: 'strict', // 'strict' | 'free'
+      playbackRate: 1.0,      // 1.0 | 0.75
+      masteredLetters: [],    // Array of 'A'..'Z'
+      bookmarkedLetters: [],  // Array of 'A'..'Z'
+      glossaryFilter: 'all'   // 'all' | 'mastered' | 'bookmarked'
+    };
+
+    let selectedVoice = null;
+    let fallbackAudioTimer = null;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState.currentIndex = typeof parsed.currentIndex === 'number' ? Math.min(25, Math.max(0, parsed.currentIndex)) : 0;
+          appState.learningMode = parsed.learningMode === 'free' ? 'free' : 'strict';
+          appState.playbackRate = parsed.playbackRate === 0.75 ? 0.75 : 1.0;
+          appState.masteredLetters = Array.isArray(parsed.masteredLetters) ? parsed.masteredLetters : [];
+          appState.bookmarkedLetters = Array.isArray(parsed.bookmarkedLetters) ? parsed.bookmarkedLetters : [];
+        }
+      } catch (e) {
+        console.warn('Unable to read saved progress:', e);
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          currentIndex: appState.currentIndex,
+          learningMode: appState.learningMode,
+          playbackRate: appState.playbackRate,
+          masteredLetters: appState.masteredLetters,
+          bookmarkedLetters: appState.bookmarkedLetters
+        }));
+      } catch (e) {
+        console.warn('Unable to save progress:', e);
+      }
+    }
+
+    /**
+     * 4. WEB SPEECH API (BRITISH THEATRICAL VOICE ENGINE)
+     */
+    function initSpeechEngine() {
+      if (!('speechSynthesis' in window)) {
+        document.getElementById('voice-engine-label').textContent = '瀏覽器不支援語音合成，將啟用視覺節奏模擬';
+        return;
+      }
+
+      const pickBritishVoice = () => {
+        const voices = window.speechSynthesis.getVoices();
+        if (!voices || voices.length === 0) return;
+
+        const gbVoices = voices.filter(v => v.lang && v.lang.toLowerCase().includes('en-gb'));
+        const preferredGb = gbVoices.find(v => /daniel|arthur|kate|uk english|british/i.test(v.name)) || gbVoices[0];
+        const anyEn = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+
+        selectedVoice = preferredGb || anyEn || voices[0];
+
+        const labelEl = document.getElementById('voice-engine-label');
+        if (labelEl && selectedVoice) {
+          const isGB = selectedVoice.lang.toLowerCase().includes('en-gb');
+          labelEl.textContent = isGB
+            ? `已就緒：英式劇院腔 (${selectedVoice.name})`
+            : `已就緒：英語朗讀引擎 (${selectedVoice.name})`;
+        }
+      };
+
+      pickBritishVoice();
+      window.speechSynthesis.onvoiceschanged = pickBritishVoice;
+    }
+
+    function setEqualizerActive(active, captionText) {
+      const eq = document.getElementById('equalizer-bars');
+      const caption = document.getElementById('audio-status-caption');
+      if (active) {
+        eq.classList.add('eq-playing');
+      } else {
+        eq.classList.remove('eq-playing');
+      }
+      if (captionText && caption) {
+        caption.textContent = captionText;
+      }
+    }
+
+    function stopAudio() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      if (fallbackAudioTimer) {
+        clearTimeout(fallbackAudioTimer);
+        fallbackAudioTimer = null;
+      }
+      setEqualizerActive(false);
+    }
+
+    function playAudio(type) {
+      const item = SHAKESPEARE_DATA[appState.currentIndex];
+      stopAudio();
+
+      const cleanQuote = item.quoteEn.replace(/\s*\/\s*/g, ', ').replace(/\.\.\.$/, '.');
+      const textToSpeak = type === 'word' ? item.word : cleanQuote;
+      const playingLabel = type === 'word'
+        ? `正在朗讀神祕單字發音（語速 ${appState.playbackRate}x）...`
+        : `正在深情朗誦《${item.playEn}》劇本原句（語速 ${appState.playbackRate}x）...`;
+      const finishedLabel = type === 'word'
+        ? '單字朗讀完畢，可再次重播或試著拼字！'
+        : '莎劇原句朗讀完畢，準備好即可前往第三部分揭曉！';
+
+      if (!('speechSynthesis' in window)) {
+        setEqualizerActive(true, playingLabel);
+        showToast('已啟動劇場視覺音浪模擬');
+        fallbackAudioTimer = setTimeout(() => {
+          setEqualizerActive(false, finishedLabel);
+        }, type === 'word' ? 1400 : 3800);
+        return;
+      }
+
+      try {
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        if (selectedVoice) {
+          utterance.voice = selectedVoice;
+          utterance.lang = selectedVoice.lang;
+        } else {
+          utterance.lang = 'en-GB';
+        }
+        utterance.rate = appState.playbackRate;
+        utterance.pitch = 0.98;
+
+        let started = false;
+        utterance.onstart = () => {
+          started = true;
+          setEqualizerActive(true, playingLabel);
+        };
+
+        utterance.onend = () => {
+          setEqualizerActive(false, finishedLabel);
+        };
+
+        utterance.onerror = () => {
+          setEqualizerActive(false, '語音播放已結束（若無聲音請檢查裝置靜音設定）');
+        };
+
+        window.speechSynthesis.speak(utterance);
+
+        setTimeout(() => {
+          if (!started) {
+            setEqualizerActive(true, playingLabel);
+            fallbackAudioTimer = setTimeout(() => {
+              setEqualizerActive(false, finishedLabel);
+            }, type === 'word' ? 1300 : 3400);
+          }
+        }, 250);
+      } catch (err) {
+        setEqualizerActive(false);
+        showToast('語音引擎暫時無法使用，請直接前往第三部分');
+      }
+    }
+
+    function setPlaybackRate(rate) {
+      appState.playbackRate = rate;
+      saveState();
+
+      const btn100 = document.getElementById('speed-100');
+      const btn75 = document.getElementById('speed-75');
+
+      if (rate === 1.0) {
+        btn100.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 transition';
+        btn75.className = 'px-2.5 py-1 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition';
+      } else {
+        btn75.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 transition';
+        btn100.className = 'px-2.5 py-1 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition';
+      }
+      showToast(`語速已切換為 ${rate === 1.0 ? '1.0x 正常語速' : '0.75x 慢速清晰'}`);
+    }
+
+    /**
+     * 5. OPTIONAL SPELLING CHECK IN STAGE 2
+     */
+    function checkSpelling() {
+      const item = SHAKESPEARE_DATA[appState.currentIndex];
+      const input = document.getElementById('spelling-input');
+      const feedback = document.getElementById('spelling-feedback');
+      const guess = input.value.trim().toLowerCase();
+      const target = item.word.toLowerCase();
+
+      if (!guess) {
+        feedback.className = 'text-xs mt-2 min-h-[1.25rem] text-burgundy-800 font-medium';
+        feedback.textContent = '請先輸入你的拼字猜測，或直接點擊下方按鈕揭曉答案。';
+        return;
+      }
+
+      if (guess === target || guess.replace(/-/g, '') === target.replace(/-/g, '')) {
+        feedback.className = 'text-xs mt-2 min-h-[1.25rem] text-emerald-800 font-bold';
+        feedback.textContent = `🎉 太精準了！完全正確！快前往第三部分欣賞《${item.playZh}》的原句吧！`;
+        showToast('聽音拼字完全正確！');
+      } else if (guess[0] === target[0]) {
+        feedback.className = 'text-xs mt-2 min-h-[1.25rem] text-amber-800 font-medium';
+        feedback.textContent = `✨ 首字母「${item.letter}」答對了！再聽一次慢速音檔試試，或直接前往第三部分揭曉。`;
+      } else {
+        feedback.className = 'text-xs mt-2 min-h-[1.25rem] text-burgundy-800 font-medium';
+        feedback.textContent = `💡 提示：這個單字以字母「${item.letter}」開頭（共 ${item.word.length} 個字元），再聽一次看看！`;
+      }
+    }
+
+    function revealSpellingHint() {
+      const item = SHAKESPEARE_DATA[appState.currentIndex];
+      const feedback = document.getElementById('spelling-feedback');
+      const hasHyphen = item.word.includes('-') ? '（包含連字號 -）' : '';
+      feedback.className = 'text-xs mt-2 min-h-[1.25rem] text-burgundy-900 font-bold';
+      feedback.textContent = `🔍 字母結構提示：首字母為 ${item.letter}，全長共 ${item.word.length} 個字元${hasHyphen}。`;
+    }
+
+    /**
+     * 6. MANDATORY 3-STAGE NAVIGATION & LEARNING MODE LOGIC
+     */
+    function setLearningMode(mode) {
+      appState.learningMode = mode;
+      saveState();
+
+      const btnStrict = document.getElementById('btn-mode-strict');
+      const btnFree = document.getElementById('btn-mode-free');
+
+      if (mode === 'strict') {
+        btnStrict.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 shadow-sm transition-all';
+        btnFree.className = 'px-2.5 py-1 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition-all';
+        showToast('已切換至「嚴格三階段模式」：依序鑑賞油畫、聆聽音檔與揭曉原句');
+      } else {
+        btnFree.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 shadow-sm transition-all';
+        btnStrict.className = 'px-2.5 py-1 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition-all';
+        showToast('已切換至「自由檢視模式」：可自由點選任一階段分頁');
+      }
+
+      updateStepperUI();
+    }
+
+    function advanceToStage(targetStage) {
+      if (targetStage > appState.highestUnlockedStage) {
+        appState.highestUnlockedStage = targetStage;
+      }
+      goToStage(targetStage);
+    }
+
+    function goToStage(targetStage) {
+      if (appState.learningMode === 'strict' && targetStage > appState.highestUnlockedStage) {
+        if (appState.highestUnlockedStage === 1) {
+          showToast('請先完成「第一部分：油畫線索」，再解鎖聆聽音檔！');
+        } else {
+          showToast('請先完成「第二部分：播放音檔」，再揭曉單字與原句！');
+        }
+        return;
+      }
+
+      stopAudio();
+      appState.currentStage = targetStage;
+      if (targetStage > appState.highestUnlockedStage) {
+        appState.highestUnlockedStage = targetStage;
+      }
+
+      const item = SHAKESPEARE_DATA[appState.currentIndex];
+      if (targetStage === 3 && !appState.masteredLetters.includes(item.letter)) {
+        appState.masteredLetters.push(item.letter);
+        saveState();
+        renderAlphabetGrid();
+        updateHeaderStats();
+        showToast(`🎊 恭喜掌握字母 ${item.letter}：${item.word}！`);
+      }
+
+      renderStageVisibility();
+      updateStepperUI();
+      updateTopSubtitle();
+    }
+
+    function updateTopSubtitle() {
+      const subtitle = document.getElementById('stage-subtitle-heading');
+      if (appState.currentStage === 1) {
+        subtitle.textContent = '第一階段：鑑賞古典油畫巨作，推敲舞台視覺線索';
+      } else if (appState.currentStage === 2) {
+        subtitle.textContent = '第二階段：聆聽英式劇場原聲朗讀，辨識神祕單字與節奏';
+      } else {
+        subtitle.textContent = '第三階段：揭曉莎翁經典詞彙、音標與第一對開本原句';
+      }
+    }
+
+    function renderStageVisibility() {
+      const s1 = document.getElementById('view-stage-1');
+      const s2 = document.getElementById('view-stage-2');
+      const s3 = document.getElementById('view-stage-3');
+
+      s1.classList.toggle('hidden', appState.currentStage !== 1);
+      s2.classList.toggle('hidden', appState.currentStage !== 2);
+      s3.classList.toggle('hidden', appState.currentStage !== 3);
+
+      if (appState.currentStage === 3) {
+        s3.classList.remove('animate-unfurl');
+        void s3.offsetWidth;
+        s3.classList.add('animate-unfurl');
+      }
+    }
+
+    function updateStepperUI() {
+      for (let step = 1; step <= 3; step++) {
+        const btn = document.getElementById(`stepper-${step}`);
+        const num = document.getElementById(`stepper-${step}-num`);
+        const isCurrent = appState.currentStage === step;
+        const isUnlocked = appState.learningMode === 'free' || step <= appState.highestUnlockedStage;
+
+        if (isCurrent) {
+          btn.className = 'group flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border-2 border-gold-300 bg-gold-400 text-burgundy-950 text-left shadow-gold-glow transition-all cursor-pointer';
+          num.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-cinzel font-black text-xs sm:text-sm shrink-0 bg-burgundy-950 text-gold-300';
+          num.textContent = step;
+        } else if (isUnlocked) {
+          btn.className = 'group flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border border-gold-400/50 bg-burgundy-800/80 hover:bg-burgundy-700 text-gold-100 text-left transition-all cursor-pointer';
+          num.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-cinzel font-bold text-xs sm:text-sm shrink-0 bg-gold-400/20 text-gold-300 border border-gold-400/50';
+          num.textContent = step < appState.currentStage ? '✓' : step;
+        } else {
+          btn.className = 'group flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl border border-gold-400/20 bg-burgundy-950/60 text-parchment-300/45 text-left transition-all cursor-not-allowed';
+          num.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-cinzel font-bold text-xs shrink-0 bg-burgundy-900 text-parchment-300/40 border border-gold-400/20';
+          num.textContent = '🔒';
+        }
+      }
+    }
+
+    /**
+     * 7. SELECTING & RENDERING A LETTER (A-Z)
+     */
+    function selectLetter(index, startStage = 1) {
+      stopAudio();
+      appState.currentIndex = index;
+      appState.currentStage = startStage;
+      appState.highestUnlockedStage = startStage;
+      saveState();
+
+      const item = SHAKESPEARE_DATA[index];
+      const isMastered = appState.masteredLetters.includes(item.letter);
+
+      // Update Header Badges
+      document.getElementById('current-letter-badge').textContent = item.letter;
+      document.getElementById('act-counter-label').textContent = `Act ${toRoman(index + 1)} · 第 ${index + 1} / 26 幕`;
+      document.getElementById('play-genre-badge').textContent = item.genre;
+      document.getElementById('mastered-status-badge').classList.toggle('hidden', !isMastered);
+
+      // Render Bespoke Oil Painting Canvases in all 3 Stages
+      renderOilPaintingOnCanvas(document.getElementById('canvas-stage-1'), item);
+      renderOilPaintingOnCanvas(document.getElementById('canvas-stage-2'), item);
+      renderOilPaintingOnCanvas(document.getElementById('canvas-stage-3'), item);
+
+      // Populate Part 1 Clues (Spoiler-Free)
+      document.getElementById('stage1-visual-clue').textContent = item.visualClue;
+      document.getElementById('clue-initial-letter').textContent = item.letter;
+      document.getElementById('clue-letter-length').textContent = `共 ${item.word.length} 個字元`;
+
+      // Populate Part 2 Summary & Reset Spelling Check
+      document.getElementById('stage2-visual-clue-summary').textContent = item.visualClue;
+      document.getElementById('spelling-input').value = '';
+      document.getElementById('spelling-feedback').textContent = '';
+      setEqualizerActive(false, '點擊下方按鈕，先聆聽神祕單字與莎劇原句的發音（此時文字仍保密中）');
+
+      // Populate Part 3 Complete Literary Reveal
+      document.getElementById('reveal-drop-cap').textContent = item.letter;
+      document.getElementById('reveal-word-title').textContent = item.word;
+      document.getElementById('reveal-pos').textContent = item.pos;
+      document.getElementById('reveal-ipa').textContent = item.ipa;
+      document.getElementById('reveal-zh-def').textContent = item.zhDef;
+      document.getElementById('reveal-en-def').textContent = item.enDef;
+
+      const formattedLines = item.quoteEn.split(' / ').map(line => {
+        return line.replace(item.highlightRegex, match =>
+          `<mark class="bg-gold-300/65 text-burgundy-900 font-bold not-italic px-1.5 py-0.5 rounded border-b-2 border-burgundy-800">${match}</mark>`
+        );
+      }).join('<br>');
+      document.getElementById('reveal-en-quote').innerHTML = `“${formattedLines}”`;
+
+      document.getElementById('reveal-zh-quote').textContent = item.quoteZh;
+      document.getElementById('reveal-play-attribution').textContent = `${item.playZh} (${item.playEn}) · ${item.actScene}`;
+      document.getElementById('reveal-literary-note').textContent = item.literaryNote;
+
+      // Update Stage 3 Next Letter Button Label
+      const nextBtnLabel = document.getElementById('next-letter-cta-label');
+      if (index < 25) {
+        const nextLetter = SHAKESPEARE_DATA[index + 1].letter;
+        nextBtnLabel.textContent = `學習下一個字母 (${nextLetter})`;
+      } else {
+        nextBtnLabel.textContent = '完成全部 26 個字母！開啟詞彙手札';
+      }
+
+      updateBookmarkButtons();
+      renderAlphabetGrid();
+      renderStageVisibility();
+      updateStepperUI();
+      updateTopSubtitle();
+    }
+
+    function navigateLetter(delta) {
+      const nextIdx = (appState.currentIndex + delta + 26) % 26;
+      selectLetter(nextIdx, 1);
+    }
+
+    function nextLetterFromStage3() {
+      if (appState.currentIndex < 25) {
+        selectLetter(appState.currentIndex + 1, 1);
+        document.getElementById('stage-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        openGlossaryModal();
+      }
+    }
+
+    /**
+     * 8. ALPHABET RIBBON, BOOKMARKS & PROGRESS STATS
+     */
+    function renderAlphabetGrid() {
+      const grid = document.getElementById('alphabet-grid');
+      grid.innerHTML = SHAKESPEARE_DATA.map((item, idx) => {
+        const isActive = idx === appState.currentIndex;
+        const isMastered = appState.masteredLetters.includes(item.letter);
+        const isBookmarked = appState.bookmarkedLetters.includes(item.letter);
+
+        let btnClasses = 'relative h-10 sm:h-11 rounded-xl font-cinzel font-bold text-sm sm:text-base flex items-center justify-center transition-all cursor-pointer ';
+        if (isActive) {
+          btnClasses += 'bg-gold-400 text-burgundy-950 font-black ring-2 ring-gold-200 shadow-gold-glow scale-105 z-10';
+        } else if (isMastered) {
+          btnClasses += 'bg-burgundy-800 text-gold-200 border border-emerald-400/60 hover:bg-burgundy-700';
+        } else {
+          btnClasses += 'bg-burgundy-950/85 text-parchment-200 border border-gold-400/25 hover:border-gold-400 hover:text-gold-200';
+        }
+
+        const masteredDot = isMastered
+          ? `<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center shadow" title="已完成">✓</span>`
+          : '';
+        const bookmarkDot = isBookmarked
+          ? `<span class="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-rose-400 ring-1 ring-burgundy-950" title="已收藏"></span>`
+          : '';
+
+        return `
+          <button onclick="selectLetter(${idx}, 1)" class="${btnClasses}" aria-label="字母 ${item.letter}">
+            <span>${item.letter}</span>
+            ${masteredDot}
+            ${bookmarkDot}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function toggleBookmark() {
+      const item = SHAKESPEARE_DATA[appState.currentIndex];
+      const idx = appState.bookmarkedLetters.indexOf(item.letter);
+      if (idx === -1) {
+        appState.bookmarkedLetters.push(item.letter);
+        showToast(`已將「${item.letter} — ${item.word}」收藏至詞彙手札`);
+      } else {
+        appState.bookmarkedLetters.splice(idx, 1);
+        showToast(`已從詞彙手札移除「${item.letter} — ${item.word}」`);
+      }
+      saveState();
+      updateBookmarkButtons();
+      renderAlphabetGrid();
+      updateHeaderStats();
+    }
+
+    function updateBookmarkButtons() {
+      const item = SHAKESPEARE_DATA[appState.currentIndex];
+      const isBookmarked = appState.bookmarkedLetters.includes(item.letter);
+
+      const topIcon = document.getElementById('bookmark-icon');
+      const topLabel = document.getElementById('bookmark-label');
+      const stage3Btn = document.getElementById('btn-stage3-bookmark');
+
+      if (isBookmarked) {
+        topIcon.textContent = '★';
+        topIcon.className = 'text-gold-300';
+        topLabel.textContent = '已收藏至手札';
+        stage3Btn.textContent = '★ 已收藏至詞彙手札';
+      } else {
+        topIcon.textContent = '☆';
+        topIcon.className = '';
+        topLabel.textContent = '收藏至詞彙手札';
+        stage3Btn.textContent = '☆ 收藏至詞彙手札';
+      }
+    }
+
+    function updateHeaderStats() {
+      const mCount = appState.masteredLetters.length;
+      const bCount = appState.bookmarkedLetters.length;
+
+      document.getElementById('mastered-count-text').textContent = `${mCount} / 26`;
+      document.getElementById('mastered-progress-bar').style.width = `${Math.round((mCount / 26) * 100)}%`;
+      document.getElementById('mobile-bookmark-count').textContent = bCount;
+      document.getElementById('desktop-bookmark-count').textContent = bCount;
+    }
+
+    /**
+     * 9. GLOSSARY & BOOKMARKS MODAL DRAWER
+     */
+    function openGlossaryModal() {
+      document.getElementById('glossary-modal').classList.remove('hidden');
+      renderGlossaryList();
+    }
+
+    function closeGlossaryModal() {
+      document.getElementById('glossary-modal').classList.add('hidden');
+    }
+
+    function setGlossaryFilter(filter) {
+      appState.glossaryFilter = filter;
+      ['all', 'mastered', 'bookmarked'].forEach(key => {
+        const tab = document.getElementById(`tab-${key}`);
+        if (key === filter) {
+          tab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-gold-400 text-burgundy-950 transition';
+        } else {
+          tab.className = 'px-3 py-1.5 rounded-lg text-xs font-medium text-parchment-200 hover:text-gold-200 transition';
+        }
+      });
+      renderGlossaryList();
+    }
+
+    function renderGlossaryList() {
+      document.getElementById('tab-mastered-count').textContent = appState.masteredLetters.length;
+      document.getElementById('tab-bookmarked-count').textContent = appState.bookmarkedLetters.length;
+
+      const query = document.getElementById('glossary-search').value.trim().toLowerCase();
+      const container = document.getElementById('glossary-list-container');
+
+      const filtered = SHAKESPEARE_DATA.map((item, idx) => ({ item, idx })).filter(({ item }) => {
+        if (appState.glossaryFilter === 'mastered' && !appState.masteredLetters.includes(item.letter)) return false;
+        if (appState.glossaryFilter === 'bookmarked' && !appState.bookmarkedLetters.includes(item.letter)) return false;
+        if (!query) return true;
+        return (
+          item.letter.toLowerCase().includes(query) ||
+          item.word.toLowerCase().includes(query) ||
+          item.zhDef.toLowerCase().includes(query) ||
+          item.playZh.toLowerCase().includes(query) ||
+          item.playEn.toLowerCase().includes(query)
+        );
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-parchment-300/70 font-serifTC">
+            <p class="text-base mb-1">此分類目前尚無符合的詞彙紀錄</p>
+            <p class="text-xs">完成第三階段學習或點擊「收藏至詞彙手札」即可在此累積你的莎翁典藏！</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(({ item, idx }) => {
+        const isMastered = appState.masteredLetters.includes(item.letter);
+        const isBookmarked = appState.bookmarkedLetters.includes(item.letter);
+        const showFullReveal = isMastered || isBookmarked || appState.learningMode === 'free';
+
+        return `
+          <div class="p-4 rounded-2xl bg-burgundy-900/90 border border-gold-400/35 hover:border-gold-400 transition flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3 min-w-0">
+              <span class="w-10 h-10 rounded-xl bg-gold-400 text-burgundy-950 font-decorative font-black text-xl flex items-center justify-center shrink-0">
+                ${item.letter}
+              </span>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="font-playfair font-bold text-lg text-gold-200">
+                    ${showFullReveal ? item.word : '••••••••（尚未揭曉）'}
+                  </span>
+                  ${isMastered ? '<span class="px-2 py-0.5 text-[10px] rounded-full bg-emerald-900 text-emerald-200 border border-emerald-500/40">✓ 已掌握</span>' : ''}
+                  ${isBookmarked ? '<span class="px-2 py-0.5 text-[10px] rounded-full bg-rose-900 text-rose-200 border border-rose-500/40">★ 已收藏</span>' : ''}
+                </div>
+                <p class="text-xs sm:text-sm text-parchment-100/90 font-serifTC mt-1">
+                  ${showFullReveal ? item.zhDef : item.visualClue}
+                </p>
+                <p class="text-[11px] text-gold-300/75 mt-1 font-serifTC">
+                  ${item.playZh} (${item.playEn}) · ${item.actScene}
+                </p>
+              </div>
+            </div>
+            <button onclick="jumpFromGlossary(${idx}, ${showFullReveal ? 3 : 1})" class="px-3 py-2 rounded-xl bg-burgundy-800 hover:bg-gold-400 hover:text-burgundy-950 text-gold-200 border border-gold-400/50 text-xs font-bold shrink-0 transition cursor-pointer">
+              ${showFullReveal ? '檢視原句' : '開始探索'}
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function jumpFromGlossary(idx, stage) {
+      closeGlossaryModal();
+      selectLetter(idx, stage);
+    }
+
+    function copyBookmarkedNotes() {
+      const targetList = appState.bookmarkedLetters.length > 0
+        ? SHAKESPEARE_DATA.filter(d => appState.bookmarkedLetters.includes(d.letter))
+        : SHAKESPEARE_DATA.filter(d => appState.masteredLetters.includes(d.letter));
+
+      if (targetList.length === 0) {
+        showToast('尚無已收藏或已掌握的詞彙可供複製');
+        return;
+      }
+
+      const text = targetList.map(d =>
+        `[${d.letter}] ${d.word} ${d.ipa} (${d.pos})\n釋義：${d.zhDef}\n原句："${d.quoteEn.replace(/\s*\/\s*/g, ' ')}"\n譯文：${d.quoteZh}\n出處：${d.playZh} (${d.playEn}) ${d.actScene}\n`
+      ).join('\n----------------------------------------\n');
+
+      const textarea = document.createElement('textarea');
+      textarea.value = `📜 我的莎士比亞 A–Z 詞彙手札\n========================================\n\n${text}`;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(`已複製 ${targetList.length} 筆莎翁詞彙筆記至剪貼簿！`);
+      } catch (e) {
+        showToast('複製失敗，請手動選取文字複製');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function promptResetProgress() {
+      const zone = document.getElementById('reset-progress-zone');
+      zone.innerHTML = `
+        <span class="text-parchment-200 mr-2">確定清空所有進度？</span>
+        <button onclick="confirmResetProgress()" class="px-2.5 py-1 rounded bg-rose-700 hover:bg-rose-600 text-white font-bold mr-1 cursor-pointer">確定重置</button>
+        <button onclick="cancelResetProgress()" class="px-2.5 py-1 rounded bg-burgundy-800 text-parchment-200 cursor-pointer">取消</button>
+      `;
+    }
+
+    function cancelResetProgress() {
+      const zone = document.getElementById('reset-progress-zone');
+      zone.innerHTML = `<button onclick="promptResetProgress()" class="text-rose-300 hover:text-rose-200 underline cursor-pointer">重置學習紀錄</button>`;
+    }
+
+    function confirmResetProgress() {
+      appState.masteredLetters = [];
+      appState.bookmarkedLetters = [];
+      saveState();
+      cancelResetProgress();
+      updateHeaderStats();
+      updateBookmarkButtons();
+      renderAlphabetGrid();
+      renderGlossaryList();
+      showToast('已重置所有學習與收藏紀錄');
+    }
+
+    /**
+     * 10. UTILITY HELPERS & KEYBOARD SHORTCUTS
+     */
+    function toRoman(num) {
+      const map = [
+        [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+      ];
+      let res = '';
+      let n = num;
+      for (const [val, sym] of map) {
+        while (n >= val) {
+          res += sym;
+          n -= val;
+        }
+      }
+      return res;
+    }
+
+    let toastTimeout = null;
+    function showToast(msg) {
+      const banner = document.getElementById('toast-banner');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = msg;
+      banner.classList.remove('opacity-0', 'translate-y-3');
+      banner.classList.add('opacity-100', 'translate-y-0');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        banner.classList.remove('opacity-100', 'translate-y-0');
+        banner.classList.add('opacity-0', 'translate-y-3');
+      }, 2800);
+    }
+
+    // Keyboard Shortcuts: Left/Right Arrow to switch A-Z letters when not typing
+    document.addEventListener('keydown', (e) => {
+      const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'textarea') return;
+      if (!document.getElementById('glossary-modal').classList.contains('hidden')) {
+        if (e.key === 'Escape') closeGlossaryModal();
+        return;
+      }
+
+      if (e.key === 'ArrowLeft') {
+        navigateLetter(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateLetter(1);
+      }
+    });
+
+    // Initialize Application on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      initSpeechEngine();
+      setLearningMode(appState.learningMode);
+      setPlaybackRate(appState.playbackRate);
+      updateHeaderStats();
+      selectLetter(appState.currentIndex, 1);
+    });
+  </script>
+</body>
+</html>
